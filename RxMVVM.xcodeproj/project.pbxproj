@@ -26,6 +26,10 @@
 		0AE64458242F5D06001EEEFB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE64457242F5D06001EEEFB /* FirstViewController.swift */; };
 		0AE6445A242F5D15001EEEFB /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE64459242F5D15001EEEFB /* FirstViewModel.swift */; };
 		0AE6445C242F5D27001EEEFB /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6445B242F5D27001EEEFB /* FirstView.swift */; };
+		0AEC4E79242FCC5C00058652 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC4E78242FCC5C00058652 /* TrackTableViewCell.swift */; };
+		0AEC4E7D242FCD9600058652 /* MVVMTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC4E7C242FCD9600058652 /* MVVMTableViewCell.swift */; };
+		0AEC4E7F242FCF8500058652 /* MVVMCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC4E7E242FCF8500058652 /* MVVMCollectionViewCell.swift */; };
+		0AEC4E81242FD65300058652 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC4E80242FD65300058652 /* AlbumCollectionViewCell.swift */; };
 		7DD5EF09B014DAC8CECC16E9 /* libPods-RxMVVM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE2BFBC65CA79C4C51044D3 /* libPods-RxMVVM.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +55,10 @@
 		0AE64457242F5D06001EEEFB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		0AE64459242F5D15001EEEFB /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
 		0AE6445B242F5D27001EEEFB /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		0AEC4E78242FCC5C00058652 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
+		0AEC4E7C242FCD9600058652 /* MVVMTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMTableViewCell.swift; sourceTree = "<group>"; };
+		0AEC4E7E242FCF8500058652 /* MVVMCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMCollectionViewCell.swift; sourceTree = "<group>"; };
+		0AEC4E80242FD65300058652 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		33EE17DEC0444634E21AC85F /* Pods-RxMVVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMVVM.debug.xcconfig"; path = "Target Support Files/Pods-RxMVVM/Pods-RxMVVM.debug.xcconfig"; sourceTree = "<group>"; };
 		35BCD3705CC4A924C747CA51 /* Pods-RxMVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMVVM.release.xcconfig"; path = "Target Support Files/Pods-RxMVVM/Pods-RxMVVM.release.xcconfig"; sourceTree = "<group>"; };
 		3AE2BFBC65CA79C4C51044D3 /* libPods-RxMVVM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RxMVVM.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +124,7 @@
 		0A8FE71B242F7ED10088912D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0AEC4E77242FCC4700058652 /* Cell */,
 				0A8FE72A242F7FC30088912D /* TrackView.swift */,
 			);
 			path = View;
@@ -140,6 +149,7 @@
 		0A8FE71E242F7EE40088912D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0AEC4E76242FCC3B00058652 /* Cell */,
 				0A8FE723242F7F8B0088912D /* AlbumView.swift */,
 			);
 			path = View;
@@ -174,10 +184,10 @@
 		0AE64432242F4D46001EEEFB /* RxMVVM */ = {
 			isa = PBXGroup;
 			children = (
-				0A8FE72C242FA4EE0088912D /* Extensions */,
 				0AE64447242F4EA7001EEEFB /* AppCoordinator.swift */,
 				0AE64433242F4D46001EEEFB /* AppDelegate.swift */,
 				0AE64435242F4D46001EEEFB /* SceneDelegate.swift */,
+				0A8FE72C242FA4EE0088912D /* Extensions */,
 				0AE64449242F526F001EEEFB /* Base */,
 				0AE64450242F5B33001EEEFB /* Screens */,
 				0AE6443C242F4D47001EEEFB /* Assets.xcassets */,
@@ -190,10 +200,8 @@
 		0AE64449242F526F001EEEFB /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				0AE6444A242F526F001EEEFB /* MVVMView.swift */,
-				0AE6444B242F526F001EEEFB /* MVVMViewController.swift */,
-				0AE6444C242F526F001EEEFB /* MVVMViewModel.swift */,
-				0AE64437242F4D46001EEEFB /* ViewController.swift */,
+				0AEC4E7B242FCD7700058652 /* Cell */,
+				0AEC4E7A242FCD6900058652 /* Base */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -239,6 +247,42 @@
 				0AE6445B242F5D27001EEEFB /* FirstView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0AEC4E76242FCC3B00058652 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0AEC4E80242FD65300058652 /* AlbumCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0AEC4E77242FCC4700058652 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0AEC4E78242FCC5C00058652 /* TrackTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0AEC4E7A242FCD6900058652 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0AE6444A242F526F001EEEFB /* MVVMView.swift */,
+				0AE6444B242F526F001EEEFB /* MVVMViewController.swift */,
+				0AE6444C242F526F001EEEFB /* MVVMViewModel.swift */,
+				0AE64437242F4D46001EEEFB /* ViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		0AEC4E7B242FCD7700058652 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0AEC4E7C242FCD9600058652 /* MVVMTableViewCell.swift */,
+				0AEC4E7E242FCF8500058652 /* MVVMCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		21643110749EBAEFEE0552FC /* Frameworks */ = {
@@ -358,15 +402,19 @@
 				0AE64448242F4EA7001EEEFB /* AppCoordinator.swift in Sources */,
 				0A8FE726242F7FA00088912D /* TrackViewController.swift in Sources */,
 				0AE6445C242F5D27001EEEFB /* FirstView.swift in Sources */,
+				0AEC4E7F242FCF8500058652 /* MVVMCollectionViewCell.swift in Sources */,
 				0AE64438242F4D46001EEEFB /* ViewController.swift in Sources */,
+				0AEC4E81242FD65300058652 /* AlbumCollectionViewCell.swift in Sources */,
 				0AE6444E242F526F001EEEFB /* MVVMViewController.swift in Sources */,
 				0A8FE729242F7FB70088912D /* TrackViewModel.swift in Sources */,
+				0AEC4E7D242FCD9600058652 /* MVVMTableViewCell.swift in Sources */,
 				0AE64458242F5D06001EEEFB /* FirstViewController.swift in Sources */,
 				0A8FE724242F7F8B0088912D /* AlbumView.swift in Sources */,
 				0AE64434242F4D46001EEEFB /* AppDelegate.swift in Sources */,
 				0A8FE72B242F7FC30088912D /* TrackView.swift in Sources */,
 				0AE64436242F4D46001EEEFB /* SceneDelegate.swift in Sources */,
 				0AE6444D242F526F001EEEFB /* MVVMView.swift in Sources */,
+				0AEC4E79242FCC5C00058652 /* TrackTableViewCell.swift in Sources */,
 				0A8FE72E242FA4FD0088912D /* UIView.swift in Sources */,
 				0AE6445A242F5D15001EEEFB /* FirstViewModel.swift in Sources */,
 				0AE6444F242F526F001EEEFB /* MVVMViewModel.swift in Sources */,

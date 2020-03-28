@@ -17,9 +17,9 @@ final class AlbumView: MVVMView {
         let layout = UICollectionViewFlowLayout.init()
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
         collectionView.setCollectionViewLayout(layout, animated: true)
+        collectionView.register(AlbumCollectionViewCell.self, forCellWithReuseIdentifier: AlbumCollectionViewCell.reuseId)
         return collectionView
     }()
-    //let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
 
     override func addSubviews() {
         super.addSubviews()

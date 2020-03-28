@@ -12,7 +12,11 @@ import UIKit
 
 final class TrackView: MVVMView {
     
-    let tableView = UITableView()
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(TrackTableViewCell.self, forCellReuseIdentifier: TrackTableViewCell.reuseId)
+        return tableView
+    }()
 
     override func addSubviews() {
         super.addSubviews()
