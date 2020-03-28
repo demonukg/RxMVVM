@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  TrackViewController.swift
 //  RxMVVM
 //
 //  Created by Dmitry Y. on 3/28/20.
@@ -9,12 +9,15 @@
 import Foundation
 import UIKit
 
-final class FirstViewController<ViewModel: FirstViewModel>: MVVMViewController<FirstView, ViewModel> {
+protocol TrackViewControllerInterface: UIViewController {
+    
+}
+
+final class TrackViewController<ViewModel: TrackViewModel>: MVVMViewController<TrackView, ViewModel>, TrackViewControllerInterface {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("FirstViewController viewWillAppear \(viewModel.test)")
     }
     
 }
