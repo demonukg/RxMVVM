@@ -14,10 +14,11 @@ final class AlbumView: MVVMView {
     
     let collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-        let layout = UICollectionViewFlowLayout.init()
-        layout.scrollDirection = UICollectionView.ScrollDirection.vertical
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
         collectionView.setCollectionViewLayout(layout, animated: true)
         collectionView.register(AlbumCollectionViewCell.self, forCellWithReuseIdentifier: AlbumCollectionViewCell.reuseId)
+        collectionView.backgroundColor = .white
         return collectionView
     }()
 
@@ -30,7 +31,7 @@ final class AlbumView: MVVMView {
         super.makeConstraints()
 
         collectionView.snp.makeConstraints {
-            $0.edges.equalTo(self.safeAreaLayoutGuide)
+            $0.edges.equalTo(self)
         }
     }
     

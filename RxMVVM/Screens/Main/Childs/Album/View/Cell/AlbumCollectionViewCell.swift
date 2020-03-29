@@ -14,19 +14,28 @@ final class AlbumCollectionViewCell: MVVMCollectionViewCell {
     
     static let reuseId: String = "AlbumCollectionViewCell"
     
-    let albumImageView: UIImageView = {
+    var album: (String, String)! {
+        didSet {
+            guard let (image, name) = album else { return }
+            albumImageView.image = UIImage(named: image)
+            albumNameLabel.text = name
+        }
+    }
+    
+    private let albumImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    let albumNameLabel = UILabel()
+    private let albumNameLabel = UILabel()
     
-    let stackView: UIStackView = {
+    private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.alignment = .fill
+        stackView.alignment = .center
         stackView.distribution = .fill
+        stackView.spacing = 0.0
         return stackView
     }()
     

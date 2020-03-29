@@ -15,15 +15,11 @@ class MVVMTableViewCell: UITableViewCell, Initializable {
         return true
     }
 
-    required init() {
-        super.init(style: .default, reuseIdentifier: nil)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         addSubviews()
         makeConstraints()
-    }
-
-    @available(*, unavailable)
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        fatalError("init(frame:) has not been implemented")
     }
 
     @available(*, unavailable)

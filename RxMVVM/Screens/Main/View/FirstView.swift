@@ -48,7 +48,7 @@ final class FirstView: MVVMView {
         super.makeConstraints()
         
         albumContainerView.snp.makeConstraints {
-            $0.height.equalTo(100)
+            $0.height.equalTo(150)
         }
         
         stackView.snp.makeConstraints {

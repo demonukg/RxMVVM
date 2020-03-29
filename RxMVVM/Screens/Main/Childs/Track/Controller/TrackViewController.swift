@@ -13,11 +13,28 @@ protocol TrackViewControllerInterface: UIViewController {
     
 }
 
-final class TrackViewController<ViewModel: TrackViewModel>: MVVMViewController<TrackView, ViewModel>, TrackViewControllerInterface {
+final class TrackViewController<ViewModel: TrackViewModel>: MVVMViewController<TrackView, ViewModel>, TrackViewControllerInterface, UITableViewDataSource, UITableViewDelegate {
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func contentViewDidLoad(_ view: TrackView) {
+        super.contentViewDidLoad(view)
+        
+        view.tableView.delegate = self
+        view.tableView.dataSource = self
         
     }
+    
+    //MARK: - UITableViewDataSource
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.tracks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TrackTableViewCell.reuseId, for: indexPath) as! TrackTableViewCell
+        cell.track = viewModel.tracks[indexPath.row]
+        return cell
+    }
+    
+    //MARK: - UITableViewDelegate
     
 }

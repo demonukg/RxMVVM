@@ -10,8 +10,10 @@ import Foundation
 
 final class AlbumViewModel: MVVMViewModel {
     
-    override init() {
-        super.init()
-    }
+    let albums: [(String, String)] = [("ico 400 lp", "First"),
+                                      ("ico 400 lp", "Second"),
+                                      ("ico 400 lp", "Third"),
+                                      ("ico 400 lp", "Fourth"),
+                                      ("ico 400 lp", "Fifth")]
     
 }

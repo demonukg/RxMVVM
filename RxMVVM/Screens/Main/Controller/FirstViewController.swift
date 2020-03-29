@@ -22,7 +22,7 @@ final class FirstViewController<ViewModel: FirstViewModel>: MVVMViewController<F
     private var trackController: TrackViewControllerInterface! {
         didSet {
             addChild(trackController)
-            contentView.addTrackView(albumController.view)
+            contentView.addTrackView(trackController.view)
             trackController.didMove(toParent: self)
         }
     }

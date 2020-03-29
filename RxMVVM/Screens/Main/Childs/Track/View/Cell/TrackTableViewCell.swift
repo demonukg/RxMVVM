@@ -14,19 +14,28 @@ final class TrackTableViewCell: MVVMTableViewCell {
     
     static let reuseId: String = "TrackTableViewCell"
     
-    let trackImageView: UIImageView = {
+    var track: (String, String)! {
+        didSet {
+            guard let (image, name) = track else { return }
+            trackImageView.image = UIImage(named: image)
+            trackNameLabel.text = name
+        }
+    }
+    
+    private let trackImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    let trackNameLabel = UILabel()
+    private let trackNameLabel = UILabel()
     
-    let stackView: UIStackView = {
+    private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.alignment = .fill
+        stackView.alignment = .center
         stackView.distribution = .fill
+        stackView.spacing = 10
         return stackView
     }()
     
@@ -43,11 +52,14 @@ final class TrackTableViewCell: MVVMTableViewCell {
         
         trackImageView.snp.makeConstraints {
             $0.height.equalTo(50)
-            $0.height.equalTo(50)
+            $0.width.equalTo(50)
         }
         
         stackView.snp.makeConstraints {
-            $0.edges.equalTo(self).offset(-10)
+            $0.leading.equalTo(self.snp.leading).offset(10)
+            $0.trailing.equalTo(self.snp.trailing).offset(-10)
+            $0.top.equalTo(self.snp.top).offset(10)
+            $0.bottom.equalTo(self.snp.bottom).offset(-10)
         }
         
     }

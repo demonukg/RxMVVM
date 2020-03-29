@@ -12,10 +12,5 @@ final class FirstViewModel: MVVMViewModel {
     
     var test = "xz"
     
-    override init() {
-        super.init()
-        print("FirstViewModel init")
-    }
-    
     
 }

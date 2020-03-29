@@ -14,6 +14,7 @@ final class TrackView: MVVMView {
     
     let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.rowHeight = 70.0
         tableView.register(TrackTableViewCell.self, forCellReuseIdentifier: TrackTableViewCell.reuseId)
         return tableView
     }()
@@ -27,7 +28,7 @@ final class TrackView: MVVMView {
         super.makeConstraints()
 
         tableView.snp.makeConstraints {
-            $0.edges.equalTo(self.safeAreaLayoutGuide)
+            $0.edges.equalTo(self)
         }
     }
     
