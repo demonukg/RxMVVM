@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import RxCocoa
+import NVActivityIndicatorView
 
 protocol MVVMViewControllerInterface: ViewControllerInterface {
   
@@ -17,52 +19,52 @@ protocol MVVMViewControllerInterface: ViewControllerInterface {
     
 }
 
-class MVVMViewController<ContentView: UIView, ViewModel: MVVMViewModelInterface>: ViewController<ContentView>, MVVMViewControllerInterface {
+class MVVMViewController<ContentView: UIView, ViewModel: MVVMViewModelInterface>: ViewController<ContentView>, MVVMViewControllerInterface, NVActivityIndicatorViewable {
   
-  let viewModel: ViewModel
+    let viewModel: ViewModel
   
-  init(viewModel: ViewModel) {
-    self.viewModel = viewModel
-    super.init()
-  }
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
   
-  final override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    contentViewDidLoad(contentView)
-    
-    bind(view: contentView)
-    bind(viewModel: viewModel)
-    bind(viewModel: viewModel, to: contentView)
-    viewModel.onBind()
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    viewModel.viewWillAppear(animated)
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    viewModel.viewDidAppear(animated)
-  }
-  
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    viewModel.viewWillDisappear(animated)
-  }
-  
-  override func viewDidDisappear(_ animated: Bool) {
-    super.viewDidDisappear(animated)
-    viewModel.viewDidDisappear(animated)
-  }
-  
-  func contentViewDidLoad(_ view: ContentView) { }
-  
-  func bind(view: ContentView) { }
-  
-  func bind(viewModel: ViewModel) { }
-  
-  func bind(viewModel: ViewModel, to view: ContentView) { }
+    final override func viewDidLoad() {
+        super.viewDidLoad()
+
+        contentViewDidLoad(contentView)
+
+        bind(view: contentView)
+        bind(viewModel: viewModel)
+        bind(viewModel: viewModel, to: contentView)
+        viewModel.onBind()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.viewWillAppear(animated)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.viewDidAppear(animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.viewWillDisappear(animated)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModel.viewDidDisappear(animated)
+    }
+
+    func contentViewDidLoad(_ view: ContentView) { }
+
+    func bind(view: ContentView) { }
+
+    func bind(viewModel: ViewModel) { }
+
+    func bind(viewModel: ViewModel, to view: ContentView) { }
 
 }

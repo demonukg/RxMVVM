@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A6715ED24323A7E00E84D0F /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6715EC24323A7E00E84D0F /* Networking.swift */; };
+		0A6715EF243242A900E84D0F /* RouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6715EE243242A900E84D0F /* RouterInterface.swift */; };
+		0A6715F12432435800E84D0F /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6715F02432435800E84D0F /* HTTPMethod.swift */; };
 		0A8FE720242F7F640088912D /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8FE71F242F7F640088912D /* AlbumViewController.swift */; };
 		0A8FE722242F7F750088912D /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8FE721242F7F750088912D /* AlbumViewModel.swift */; };
 		0A8FE724242F7F8B0088912D /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8FE723242F7F8B0088912D /* AlbumView.swift */; };
@@ -30,10 +33,17 @@
 		0AEC4E7D242FCD9600058652 /* MVVMTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC4E7C242FCD9600058652 /* MVVMTableViewCell.swift */; };
 		0AEC4E7F242FCF8500058652 /* MVVMCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC4E7E242FCF8500058652 /* MVVMCollectionViewCell.swift */; };
 		0AEC4E81242FD65300058652 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC4E80242FD65300058652 /* AlbumCollectionViewCell.swift */; };
+		0AEC67242430C594004A01DD /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC67232430C594004A01DD /* Track.swift */; };
+		0AEC67262430C59F004A01DD /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC67252430C59F004A01DD /* Album.swift */; };
+		0AEC67282430D579004A01DD /* Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC67272430D579004A01DD /* Reactive.swift */; };
+		0AEC672B2430FE86004A01DD /* AlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC672A2430FE86004A01DD /* AlertControllerFactory.swift */; };
 		7DD5EF09B014DAC8CECC16E9 /* libPods-RxMVVM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE2BFBC65CA79C4C51044D3 /* libPods-RxMVVM.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A6715EC24323A7E00E84D0F /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		0A6715EE243242A900E84D0F /* RouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterInterface.swift; sourceTree = "<group>"; };
+		0A6715F02432435800E84D0F /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		0A8FE71F242F7F640088912D /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		0A8FE721242F7F750088912D /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
 		0A8FE723242F7F8B0088912D /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
@@ -59,6 +69,10 @@
 		0AEC4E7C242FCD9600058652 /* MVVMTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMTableViewCell.swift; sourceTree = "<group>"; };
 		0AEC4E7E242FCF8500058652 /* MVVMCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMCollectionViewCell.swift; sourceTree = "<group>"; };
 		0AEC4E80242FD65300058652 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		0AEC67232430C594004A01DD /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		0AEC67252430C59F004A01DD /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		0AEC67272430D579004A01DD /* Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reactive.swift; sourceTree = "<group>"; };
+		0AEC672A2430FE86004A01DD /* AlertControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerFactory.swift; sourceTree = "<group>"; };
 		33EE17DEC0444634E21AC85F /* Pods-RxMVVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMVVM.debug.xcconfig"; path = "Target Support Files/Pods-RxMVVM/Pods-RxMVVM.debug.xcconfig"; sourceTree = "<group>"; };
 		35BCD3705CC4A924C747CA51 /* Pods-RxMVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMVVM.release.xcconfig"; path = "Target Support Files/Pods-RxMVVM/Pods-RxMVVM.release.xcconfig"; sourceTree = "<group>"; };
 		3AE2BFBC65CA79C4C51044D3 /* libPods-RxMVVM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RxMVVM.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A6715EB24323A5800E84D0F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0A6715EC24323A7E00E84D0F /* Networking.swift */,
+				0A6715EE243242A900E84D0F /* RouterInterface.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		0A8FE716242F7E870088912D /* Childs */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				0A8FE72D242FA4FD0088912D /* UIView.swift */,
+				0AEC67272430D579004A01DD /* Reactive.swift */,
+				0A6715F02432435800E84D0F /* HTTPMethod.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -187,8 +212,11 @@
 				0AE64447242F4EA7001EEEFB /* AppCoordinator.swift */,
 				0AE64433242F4D46001EEEFB /* AppDelegate.swift */,
 				0AE64435242F4D46001EEEFB /* SceneDelegate.swift */,
+				0A6715EB24323A5800E84D0F /* Networking */,
+				0AEC67292430FE5B004A01DD /* Factories */,
 				0A8FE72C242FA4EE0088912D /* Extensions */,
 				0AE64449242F526F001EEEFB /* Base */,
+				0AEC67222430C57A004A01DD /* Entites */,
 				0AE64450242F5B33001EEEFB /* Screens */,
 				0AE6443C242F4D47001EEEFB /* Assets.xcassets */,
 				0AE6443E242F4D47001EEEFB /* LaunchScreen.storyboard */,
@@ -283,6 +311,23 @@
 				0AEC4E7E242FCF8500058652 /* MVVMCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		0AEC67222430C57A004A01DD /* Entites */ = {
+			isa = PBXGroup;
+			children = (
+				0AEC67232430C594004A01DD /* Track.swift */,
+				0AEC67252430C59F004A01DD /* Album.swift */,
+			);
+			path = Entites;
+			sourceTree = "<group>";
+		};
+		0AEC67292430FE5B004A01DD /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				0AEC672A2430FE86004A01DD /* AlertControllerFactory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 		21643110749EBAEFEE0552FC /* Frameworks */ = {
@@ -399,16 +444,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A8FE722242F7F750088912D /* AlbumViewModel.swift in Sources */,
+				0AEC67242430C594004A01DD /* Track.swift in Sources */,
 				0AE64448242F4EA7001EEEFB /* AppCoordinator.swift in Sources */,
+				0A6715ED24323A7E00E84D0F /* Networking.swift in Sources */,
 				0A8FE726242F7FA00088912D /* TrackViewController.swift in Sources */,
 				0AE6445C242F5D27001EEEFB /* FirstView.swift in Sources */,
 				0AEC4E7F242FCF8500058652 /* MVVMCollectionViewCell.swift in Sources */,
+				0AEC67262430C59F004A01DD /* Album.swift in Sources */,
 				0AE64438242F4D46001EEEFB /* ViewController.swift in Sources */,
 				0AEC4E81242FD65300058652 /* AlbumCollectionViewCell.swift in Sources */,
 				0AE6444E242F526F001EEEFB /* MVVMViewController.swift in Sources */,
 				0A8FE729242F7FB70088912D /* TrackViewModel.swift in Sources */,
+				0AEC672B2430FE86004A01DD /* AlertControllerFactory.swift in Sources */,
 				0AEC4E7D242FCD9600058652 /* MVVMTableViewCell.swift in Sources */,
+				0AEC67282430D579004A01DD /* Reactive.swift in Sources */,
 				0AE64458242F5D06001EEEFB /* FirstViewController.swift in Sources */,
+				0A6715F12432435800E84D0F /* HTTPMethod.swift in Sources */,
 				0A8FE724242F7F8B0088912D /* AlbumView.swift in Sources */,
 				0AE64434242F4D46001EEEFB /* AppDelegate.swift in Sources */,
 				0A8FE72B242F7FC30088912D /* TrackView.swift in Sources */,
@@ -418,6 +469,7 @@
 				0A8FE72E242FA4FD0088912D /* UIView.swift in Sources */,
 				0AE6445A242F5D15001EEEFB /* FirstViewModel.swift in Sources */,
 				0AE6444F242F526F001EEEFB /* MVVMViewModel.swift in Sources */,
+				0A6715EF243242A900E84D0F /* RouterInterface.swift in Sources */,
 				0A8FE720242F7F640088912D /* AlbumViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

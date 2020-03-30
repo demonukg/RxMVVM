@@ -49,10 +49,6 @@ final class AlbumViewController<ViewModel: AlbumViewModel>: MVVMViewController<A
         UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 10.0
-//    }
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10.0
     }

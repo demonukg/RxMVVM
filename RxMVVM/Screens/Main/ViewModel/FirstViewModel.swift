@@ -7,10 +7,42 @@
 //
 
 import Foundation
+import RxSwift
 
-final class FirstViewModel: MVVMViewModel {
+protocol FirstViewModelInterface {
     
-    var test = "xz"
+    var albums: PublishSubject<Album> { get }
+    
+    var track: PublishSubject<Track> { get }
+    
+    var loading: PublishSubject<Bool> { get set }
+    
+    var error: PublishSubject<MainError> { get set }
+    
+}
+
+final class FirstViewModel: MVVMViewModel, FirstViewModelInterface {
+    
+    let albums: PublishSubject<Album> = PublishSubject()
+    
+    let track: PublishSubject<Track> = PublishSubject()
+    
+    var loading: PublishSubject<Bool> = PublishSubject()
+    
+    var error: PublishSubject<MainError> = PublishSubject()
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        loading.onNext(true)
+        DispatchQueue.main.asyncAfter(deadline: .now()+5) {
+            self.loading.onNext(false)
+            self.error.onNext(.internalError("Hello World"))
+        }
+    }
+    
+    
     
     
 }

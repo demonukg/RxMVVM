@@ -8,6 +8,14 @@
 
 import Foundation
 
+enum MainError {
+    
+    case internalError(String)
+    
+    case serverError(Error)
+    
+}
+
 
 protocol MVVMViewModelInterface: AnyObject {
   
@@ -29,11 +37,11 @@ class MVVMViewModel: MVVMViewModelInterface {
     
     func onBind() { }
 
-    final func viewWillAppear(_ animated: Bool) { }
+    func viewWillAppear(_ animated: Bool) { }
 
-    final func viewDidAppear(_ animated: Bool) { }
+    func viewDidAppear(_ animated: Bool) { }
 
-    final func viewWillDisappear(_ animated: Bool) { }
+    func viewWillDisappear(_ animated: Bool) { }
 
-    final func viewDidDisappear(_ animated: Bool) { }
+    func viewDidDisappear(_ animated: Bool) { }
 }

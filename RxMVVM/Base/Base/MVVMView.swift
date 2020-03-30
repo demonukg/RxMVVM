@@ -11,7 +11,7 @@ import UIKit
 
 protocol NibInstantiatable: AnyObject {
   
-  static var nib: UINib { get }
+    static var nib: UINib { get }
 }
 
 extension NibInstantiatable {
