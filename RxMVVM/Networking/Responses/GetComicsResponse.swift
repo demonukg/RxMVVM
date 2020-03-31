@@ -10,16 +10,30 @@ import Foundation
 
 struct GetComicsResponse: Decodable {
     
-    let success: String
+    let status: String
     
-    let results: [Comics]
+    let data: ComicsData
     
     enum CodingKeys: String, CodingKey {
         
-        case success
+        case status
         
-        case results
+        case data
         
     }
     
+}
+
+extension GetComicsResponse {
+    
+    struct ComicsData: Decodable {
+        
+        let results: [Comics]
+        
+        enum CodingKeys: String, CodingKey {
+            
+            case results
+            
+        }
+    }
 }

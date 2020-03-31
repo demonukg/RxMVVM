@@ -28,7 +28,7 @@ final class AppCoordinator: AppCoordinatorInterface {
     }
     
     func start() {
-        window.rootViewController = UINavigationController(rootViewController: FirstViewController(viewModel: FirstViewModel()))
+        window.rootViewController = UINavigationController(rootViewController: FirstViewController(viewModel: BaseViewModel()))
     }
     
     

@@ -10,7 +10,7 @@ import Foundation
 
 struct Comics: Decodable {
     
-    let id: String
+    let id: Int
     
     let title: String
     

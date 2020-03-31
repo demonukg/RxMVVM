@@ -11,7 +11,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class FirstViewController<ViewModel: FirstViewModel>: MVVMViewController<FirstView, ViewModel> {
+final class FirstViewController<ViewModel: BaseViewModel>: MVVMViewController<FirstView, ViewModel> {
     
     let disposeBag = DisposeBag()
     

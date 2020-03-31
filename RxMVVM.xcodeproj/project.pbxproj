@@ -36,7 +36,7 @@
 		0AE6444E242F526F001EEEFB /* MVVMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6444B242F526F001EEEFB /* MVVMViewController.swift */; };
 		0AE6444F242F526F001EEEFB /* MVVMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6444C242F526F001EEEFB /* MVVMViewModel.swift */; };
 		0AE64458242F5D06001EEEFB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE64457242F5D06001EEEFB /* FirstViewController.swift */; };
-		0AE6445A242F5D15001EEEFB /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE64459242F5D15001EEEFB /* FirstViewModel.swift */; };
+		0AE6445A242F5D15001EEEFB /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE64459242F5D15001EEEFB /* BaseViewModel.swift */; };
 		0AE6445C242F5D27001EEEFB /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE6445B242F5D27001EEEFB /* FirstView.swift */; };
 		0AEC4E79242FCC5C00058652 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC4E78242FCC5C00058652 /* TrackTableViewCell.swift */; };
 		0AEC4E7D242FCD9600058652 /* MVVMTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC4E7C242FCD9600058652 /* MVVMTableViewCell.swift */; };
@@ -79,7 +79,7 @@
 		0AE6444B242F526F001EEEFB /* MVVMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVVMViewController.swift; sourceTree = "<group>"; };
 		0AE6444C242F526F001EEEFB /* MVVMViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVVMViewModel.swift; sourceTree = "<group>"; };
 		0AE64457242F5D06001EEEFB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		0AE64459242F5D15001EEEFB /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
+		0AE64459242F5D15001EEEFB /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		0AE6445B242F5D27001EEEFB /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		0AEC4E78242FCC5C00058652 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		0AEC4E7C242FCD9600058652 /* MVVMTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMTableViewCell.swift; sourceTree = "<group>"; };
@@ -247,16 +247,16 @@
 				0AE64447242F4EA7001EEEFB /* AppCoordinator.swift */,
 				0AE64433242F4D46001EEEFB /* AppDelegate.swift */,
 				0AE64435242F4D46001EEEFB /* SceneDelegate.swift */,
+				0A8ACA722432688300A341A7 /* Constants.swift */,
+				0AE64441242F4D47001EEEFB /* Info.plist */,
+				0AE6443C242F4D47001EEEFB /* Assets.xcassets */,
+				0AE6443E242F4D47001EEEFB /* LaunchScreen.storyboard */,
 				0A6715EB24323A5800E84D0F /* Networking */,
 				0AEC67292430FE5B004A01DD /* Factories */,
 				0A8FE72C242FA4EE0088912D /* Extensions */,
 				0AE64449242F526F001EEEFB /* Base */,
 				0AEC67222430C57A004A01DD /* Entites */,
 				0AE64450242F5B33001EEEFB /* Screens */,
-				0AE6443C242F4D47001EEEFB /* Assets.xcassets */,
-				0AE6443E242F4D47001EEEFB /* LaunchScreen.storyboard */,
-				0AE64441242F4D47001EEEFB /* Info.plist */,
-				0A8ACA722432688300A341A7 /* Constants.swift */,
 			);
 			path = RxMVVM;
 			sourceTree = "<group>";
@@ -300,7 +300,7 @@
 		0AE64455242F5CE7001EEEFB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				0AE64459242F5D15001EEEFB /* FirstViewModel.swift */,
+				0AE64459242F5D15001EEEFB /* BaseViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -509,7 +509,7 @@
 				0AEC4E79242FCC5C00058652 /* TrackTableViewCell.swift in Sources */,
 				0A8ACA7D24326BBC00A341A7 /* GetComicsCharactersResponse.swift in Sources */,
 				0A8FE72E242FA4FD0088912D /* UIView.swift in Sources */,
-				0AE6445A242F5D15001EEEFB /* FirstViewModel.swift in Sources */,
+				0AE6445A242F5D15001EEEFB /* BaseViewModel.swift in Sources */,
 				0AE6444F242F526F001EEEFB /* MVVMViewModel.swift in Sources */,
 				0A6715EF243242A900E84D0F /* RouterInterface.swift in Sources */,
 				0A8FE720242F7F640088912D /* AlbumViewController.swift in Sources */,
