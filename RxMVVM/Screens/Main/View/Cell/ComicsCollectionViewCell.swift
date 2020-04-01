@@ -1,5 +1,5 @@
 //
-//  AlbumCollectionViewCell.swift
+//  ComicsCollectionViewCell.swift
 //  RxMVVM
 //
 //  Created by Dmitry Y. on 3/28/20.
@@ -9,26 +9,29 @@
 import Foundation
 import UIKit
 import SnapKit
+import AlamofireImage
 
-final class AlbumCollectionViewCell: MVVMCollectionViewCell {
+final class ComicsCollectionViewCell: MVVMCollectionViewCell {
     
-    static let reuseId: String = "AlbumCollectionViewCell"
+    static let reuseId: String = "ComicsCollectionViewCell"
     
-    var album: (String, String)! {
+    var comics: Comics! {
         didSet {
-            guard let (image, name) = album else { return }
-            albumImageView.image = UIImage(named: image)
-            albumNameLabel.text = name
+            comicsNameLabel.text = comics.title
+            guard let url = URL(string: comics.thumbnail.path + "." + comics.thumbnail.ext) else { return }
+            comicsImageView.image = UIImage(named: "ico 400 lp")
         }
     }
     
-    private let albumImageView: UIImageView = {
+    private let comicsImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 5
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    private let albumNameLabel = UILabel()
+    private let comicsNameLabel = UILabel()
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -42,17 +45,17 @@ final class AlbumCollectionViewCell: MVVMCollectionViewCell {
     override func addSubviews() {
         super.addSubviews()
         
-        stackView.addArrangedSubview(albumImageView)
-        stackView.addArrangedSubview(albumNameLabel)
+        stackView.addArrangedSubview(comicsImageView)
+        stackView.addArrangedSubview(comicsNameLabel)
         addSubview(stackView)
     }
     
     override func makeConstraints() {
         super.makeConstraints()
         
-        albumImageView.snp.makeConstraints {
-            $0.height.equalTo(100)
-            $0.height.equalTo(100)
+        comicsImageView.snp.makeConstraints {
+            $0.height.equalTo(210)
+            $0.height.equalTo(210)
         }
         
         stackView.snp.makeConstraints {

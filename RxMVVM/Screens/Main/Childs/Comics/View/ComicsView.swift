@@ -1,5 +1,5 @@
 //
-//  AlbumView.swift
+//  ComicsView.swift
 //  RxMVVM
 //
 //  Created by Dmitry Y. on 3/28/20.
@@ -10,14 +10,14 @@ import Foundation
 import SnapKit
 import UIKit
 
-final class AlbumView: MVVMView {
+final class ComicsView: MVVMView {
     
     let collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         collectionView.setCollectionViewLayout(layout, animated: true)
-        collectionView.register(AlbumCollectionViewCell.self, forCellWithReuseIdentifier: AlbumCollectionViewCell.reuseId)
+        collectionView.register(ComicsCollectionViewCell.self, forCellWithReuseIdentifier: ComicsCollectionViewCell.reuseId)
         collectionView.backgroundColor = .white
         return collectionView
     }()

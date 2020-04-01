@@ -11,9 +11,9 @@ import RxSwift
 
 protocol BaseViewModelInterface {
     
-    var albums: PublishSubject<[Comics]> { get }
+    var comics: PublishSubject<[Comics]> { get }
     
-    var track: PublishSubject<[Character]> { get }
+    var characters: PublishSubject<[Character]> { get }
     
     var loading: PublishSubject<Bool> { get set }
     
@@ -23,9 +23,9 @@ protocol BaseViewModelInterface {
 
 final class BaseViewModel: MVVMViewModel, BaseViewModelInterface {
     
-    let albums: PublishSubject<[Comics]> = PublishSubject()
+    let comics: PublishSubject<[Comics]> = PublishSubject()
     
-    let track: PublishSubject<[Character]> = PublishSubject()
+    let characters: PublishSubject<[Character]> = PublishSubject()
     
     var loading: PublishSubject<Bool> = PublishSubject()
     
@@ -35,13 +35,15 @@ final class BaseViewModel: MVVMViewModel, BaseViewModelInterface {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        
-        getComics { comics in
-            switch comics {
-            case .success(let comics):
-                print(comics.count)
+        loading.onNext(true)
+        getComics { [weak self] result in
+            guard let self = self else { return }
+            self.loading.onNext(false)
+            switch result {
+            case .success(let data):
+                self.comics.onNext(data)
             case .failure(let error):
-                print(error.localizedDescription)
+                self.error.onNext(.serverError(error))
             }
         }
         

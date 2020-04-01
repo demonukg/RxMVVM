@@ -1,5 +1,5 @@
 //
-//  FirstView.swift
+//  BaseView.swift
 //  RxMVVM
 //
 //  Created by Dmitry Y. on 3/28/20.
@@ -10,21 +10,31 @@ import Foundation
 import UIKit
 import SnapKit
 
-final class FirstView: MVVMView {
+final class BaseView: MVVMView {
     
-    let albumContainerView: UIView = {
+    let collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        collectionView.setCollectionViewLayout(layout, animated: true)
+        collectionView.register(ComicsCollectionViewCell.self, forCellWithReuseIdentifier: ComicsCollectionViewCell.reuseId)
+        collectionView.backgroundColor = .white
+        return collectionView
+    }()
+    
+    private let comicsContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = .green
         return view
     }()
     
-    let trackContainerView: UIView = {
+    private let trackContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = .yellow
         return view
     }()
     
-    let stackView: UIStackView = {
+    private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill
@@ -39,25 +49,29 @@ final class FirstView: MVVMView {
     
     override func addSubviews() {
         super.addSubviews()
-        stackView.addArrangedSubview(albumContainerView)
+        comicsContainerView.addSubview(collectionView)
+        stackView.addArrangedSubview(comicsContainerView)
         stackView.addArrangedSubview(trackContainerView)
         self.addSubview(stackView)
+        
     }
     
     override func makeConstraints() {
         super.makeConstraints()
         
-        albumContainerView.snp.makeConstraints {
-            $0.height.equalTo(150)
+        collectionView.snp.makeConstraints {
+            $0.edges.equalTo(comicsContainerView)
+        }
+        
+        //проблема тут
+        comicsContainerView.snp.makeConstraints {
+            $0.height.equalTo(250)
         }
         
         stackView.snp.makeConstraints {
             $0.edges.equalTo(self.safeAreaLayoutGuide)
         }
-    }
-    
-    func addAlbumView(_ view: UIView) {
-        albumContainerView.addFullSubview(view)
+        
     }
     
     func addTrackView(_ view: UIView) {

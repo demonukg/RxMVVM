@@ -8,33 +8,40 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 protocol AlbumViewControllerInterface: UIViewController {
     
+    var comics: PublishSubject<[Comics]> { get }
+    
 }
 
-final class AlbumViewController<ViewModel: AlbumViewModel>: MVVMViewController<AlbumView, ViewModel>, AlbumViewControllerInterface, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+final class ComicsViewController<ViewModel: AlbumViewModel>: MVVMViewController<ComicsView, ViewModel>, AlbumViewControllerInterface, UICollectionViewDelegateFlowLayout {
     
-    override func contentViewDidLoad(_ view: AlbumView) {
+    
+    let comics: PublishSubject<[Comics]> = PublishSubject()
+    
+    
+    private let disposeBag = DisposeBag()
+    
+    
+    override func contentViewDidLoad(_ view: ComicsView) {
         super.contentViewDidLoad(view)
         
-        view.collectionView.dataSource = self
         view.collectionView.delegate = self
     }
     
-    //MARK: - UICollectionViewDataSource
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        viewModel.albums.count
+    override func bind(view: ComicsView) {
+        super.bind(view: view)
+        
+        
+        comics.bind(to: view.collectionView.rx.items(cellIdentifier: ComicsCollectionViewCell.reuseId, cellType: ComicsCollectionViewCell.self)) { row, item, cell in
+            cell.comics = item
+        }.disposed(by: disposeBag)
+        
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlbumCollectionViewCell.reuseId, for: indexPath) as! AlbumCollectionViewCell
-        cell.album = viewModel.albums[indexPath.row]
-        return cell
-    }
-    
-    //MARK: - UICollectionViewDelegate
     
     //MARK: - UICollectionViewDelegateFlowLayout
     
