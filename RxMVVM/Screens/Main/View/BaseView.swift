@@ -49,19 +49,15 @@ final class BaseView: MVVMView {
     
     override func addSubviews() {
         super.addSubviews()
-        comicsContainerView.addSubview(collectionView)
+        self.addSubview(stackView)
         stackView.addArrangedSubview(comicsContainerView)
         stackView.addArrangedSubview(trackContainerView)
-        self.addSubview(stackView)
+        comicsContainerView.addSubview(collectionView)
         
     }
     
     override func makeConstraints() {
         super.makeConstraints()
-        
-        collectionView.snp.makeConstraints {
-            $0.edges.equalTo(comicsContainerView)
-        }
         
         //проблема тут
         comicsContainerView.snp.makeConstraints {
@@ -70,6 +66,10 @@ final class BaseView: MVVMView {
         
         stackView.snp.makeConstraints {
             $0.edges.equalTo(self.safeAreaLayoutGuide)
+        }
+        
+        collectionView.snp.makeConstraints {
+            $0.edges.equalTo(comicsContainerView)
         }
         
     }
