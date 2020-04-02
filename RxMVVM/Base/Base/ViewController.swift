@@ -36,7 +36,8 @@ class ViewController<ContentView: UIView>: UIViewController, ViewControllerInter
 
     override func loadView() {
         if ContentView.self is Initializable.Type {
-            view = ContentView.init()
+            view = ContentView.init(frame: UIScreen.main.bounds)
+            view.backgroundColor = .white
             return
         }
 

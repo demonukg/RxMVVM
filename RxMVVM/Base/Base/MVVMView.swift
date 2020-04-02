@@ -35,15 +35,10 @@ class MVVMView: UIView, Initializable {
         return true
     }
 
-    required init() {
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         addSubviews()
         makeConstraints()
-    }
-
-    @available(*, unavailable)
-    override init(frame: CGRect) {
-        fatalError("init(frame:) has not been implemented")
     }
 
     @available(*, unavailable)

@@ -42,11 +42,6 @@ final class BaseView: MVVMView {
         return stackView
     }()
     
-    required init() {
-        super.init()
-        backgroundColor = .white
-    }
-    
     override func addSubviews() {
         super.addSubviews()
         self.addSubview(stackView)
