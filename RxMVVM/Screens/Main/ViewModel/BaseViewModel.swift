@@ -31,27 +31,22 @@ final class BaseViewModel: MVVMViewModel, BaseViewModelInterface {
     
     var error: PublishSubject<MainError> = PublishSubject()
     
+    private let disposeBag = DisposeBag()
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         loading.onNext(true)
-        getComics { [weak self] result in
-            guard let self = self else { return }
-            self.loading.onNext(false)
-            switch result {
-            case .success(let data):
-                self.comics.onNext(data)
-            case .failure(let error):
-                self.error.onNext(.serverError(error))
-            }
-        }
         
-//        loading.onNext(true)
-//        DispatchQueue.main.asyncAfter(deadline: .now()+5) {
-//            self.loading.onNext(false)
-//            self.error.onNext(.internalError("Hello World"))
-//        }
+        getComicsRx()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { comics in
+                self.comics.onNext(comics.data.results)
+                self.loading.onNext(false)
+            }, onError: { error in
+                self.error.onNext(.serverError(error))
+                self.loading.onNext(false)
+            }).disposed(by: disposeBag)
     }
 }
 
@@ -72,5 +67,12 @@ private extension BaseViewModel {
             }
         }
     }
+    
+    
+    func getComicsRx(limit: Int? = 10, offset: Int? = nil) -> Observable<GetComicsResponse> {
+        return Networking.requestRx(ComicsRouter.getComics(limit: limit, offset: offset))
+    }
+    
+    
     
 }

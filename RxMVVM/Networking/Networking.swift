@@ -7,8 +7,38 @@
 //
 
 import Alamofire
+import RxSwift
 
 final class Networking {
+    
+    static func requestRx<T: Decodable> (_ urlRequest: URLRequestConvertible) -> Observable<T> {
+        return Observable<T>.create { observer in
+            let request = AF.request(urlRequest).responseDecodable(of: T.self) { response in
+                switch response.result {
+                case .success(let value):
+                    observer.onNext(value)
+                    observer.onCompleted()
+                case .failure(let error):
+                    
+                    switch response.response?.statusCode {
+                    case 403:
+                        observer.onError(Error.forbidden)
+                    case 404:
+                        observer.onError(Error.notFound)
+                    case 409:
+                        observer.onError(Error.conflict)
+                    case 500:
+                        observer.onError(Error.internalServerError)
+                    default:
+                        observer.onError(error)
+                    }
+                }
+            }
+            return Disposables.create {
+                request.cancel()
+            }
+        }
+    }
     
     static func request<T: Decodable>(_ urlRequest: URLRequestConvertible,
                                       result: @escaping(Swift.Result<T, Error>) -> Void) {
@@ -43,11 +73,14 @@ final class Networking {
 extension Networking {
     
     enum Error: Swift.Error {
-
+        case forbidden
+        case notFound
+        case conflict
+        case internalServerError
+        
         case decoding(description: String)
         
         case descripted(code: Int?, description: String)
-        
     }
     
 }
@@ -56,6 +89,14 @@ extension Networking.Error: LocalizedError {
     
     var errorDescription: String? {
         switch self {
+        case .forbidden:
+            return "Status code 403"
+        case .notFound:
+            return "Status code 404"
+        case .conflict:
+            return "Status code 409"
+        case .internalServerError:
+            return "Status code 500"
         case let .decoding(description):
             return "Data parsing failure" + "\n" + description
             

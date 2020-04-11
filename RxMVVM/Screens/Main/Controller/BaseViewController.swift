@@ -13,13 +13,13 @@ import RxCocoa
 
 protocol BaseViewControllerInterface: UIViewController {
     
-    var comics: PublishSubject<[Comics]> { get }
+    //var comics: PublishSubject<[Comics]> { get }
     
 }
 
 final class BaseViewController<ViewModel: BaseViewModel>: MVVMViewController<BaseView, ViewModel>, BaseViewControllerInterface, UICollectionViewDelegateFlowLayout {
     
-    let comics: PublishSubject<[Comics]> = PublishSubject()
+    //let comics: PublishSubject<[Comics]> = PublishSubject()
     
     let disposeBag = DisposeBag()
     
@@ -65,10 +65,6 @@ final class BaseViewController<ViewModel: BaseViewModel>: MVVMViewController<Bas
                     
                 }
             }).disposed(by: disposeBag)
-        
-        viewModel.comics
-            .bind(to: comics)
-            .disposed(by: disposeBag)
         
     }
     
