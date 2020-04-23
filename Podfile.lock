@@ -2,12 +2,17 @@ PODS:
   - Alamofire (5.0.5)
   - AlamofireImage (4.0.3):
     - Alamofire (< 6.0.0, >= 5.0.2)
+  - Differentiator (4.0.1)
   - NVActivityIndicatorView (4.8.0):
     - NVActivityIndicatorView/Presenter (= 4.8.0)
   - NVActivityIndicatorView/Presenter (4.8.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
@@ -18,6 +23,7 @@ DEPENDENCIES:
   - AlamofireImage (~> 4.0)
   - NVActivityIndicatorView (~> 4.8)
   - RxCocoa (~> 5.1)
+  - RxDataSources (~> 4.0)
   - RxSwift (~> 5.1)
   - SnapKit (~> 5.0)
 
@@ -25,8 +31,10 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireImage
+    - Differentiator
     - NVActivityIndicatorView
     - RxCocoa
+    - RxDataSources
     - RxRelay
     - RxSwift
     - SnapKit
@@ -34,12 +42,14 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
   AlamofireImage: 3d1a2010519e58675318735580eb856e88840ff7
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   NVActivityIndicatorView: d24b7ebcf80af5dcd994adb650e2b6c93379270f
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 0577055dffdb7405a56cf9548ef167495f5f16f7
+PODFILE CHECKSUM: 0059b4961df2606c28635ef2a980a29896a206a7
 
 COCOAPODS: 1.8.4

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 protocol BaseViewControllerInterface: UIViewController {
     
@@ -22,6 +23,17 @@ final class BaseViewController<ViewModel: BaseViewModel>: MVVMViewController<Bas
     //let comics: PublishSubject<[Comics]> = PublishSubject()
     
     let disposeBag = DisposeBag()
+    
+    let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Comics>>(
+        configureCell: { (_, collectionView, indexPath, item: Comics) in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComicsCollectionViewCell.reuseId, for: indexPath) as! ComicsCollectionViewCell
+            cell.comics = item
+            return cell
+        }
+    )
+    
+    
+    
     
     private var trackController: TrackViewControllerInterface! {
         didSet {
@@ -72,10 +84,15 @@ final class BaseViewController<ViewModel: BaseViewModel>: MVVMViewController<Bas
         super.bind(viewModel: viewModel, to: view)
         
         viewModel.comics
-            .bind(to: view.collectionView.rx.items(cellIdentifier: ComicsCollectionViewCell.reuseId, cellType: ComicsCollectionViewCell.self)) { row, item, cell in
-            cell.comics = item
-        }.disposed(by: disposeBag)
+            .map { [SectionModel(model: "Comics", items: $0)] }
+            .bind(to: view.collectionView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
         
+        
+//        viewModel.comics
+//            .bind(to: view.collectionView.rx.items(cellIdentifier: ComicsCollectionViewCell.reuseId, cellType: ComicsCollectionViewCell.self)) { row, item, cell in
+//                cell.comics = item
+//        }.disposed(by: disposeBag)
     }
     
     

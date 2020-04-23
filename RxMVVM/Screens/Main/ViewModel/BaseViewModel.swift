@@ -19,6 +19,8 @@ protocol BaseViewModelInterface {
     
     var error: PublishSubject<MainError> { get set }
     
+    var loadNextPageTrigger: PublishSubject<Void> { get set }
+    
 }
 
 final class BaseViewModel: MVVMViewModel, BaseViewModelInterface {
@@ -31,6 +33,8 @@ final class BaseViewModel: MVVMViewModel, BaseViewModelInterface {
     
     var error: PublishSubject<MainError> = PublishSubject()
     
+    var loadNextPageTrigger = PublishSubject<Void>()
+    
     private let disposeBag = DisposeBag()
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,14 +43,23 @@ final class BaseViewModel: MVVMViewModel, BaseViewModelInterface {
         loading.onNext(true)
         
         getComicsRx()
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { comics in
-                self.comics.onNext(comics.data.results)
+            .subscribeOn(MainScheduler.instance)
+            .do(onDispose: {
                 self.loading.onNext(false)
+            }).subscribe(onNext: { comics in
+                self.comics.onNext(comics.data.results)
             }, onError: { error in
                 self.error.onNext(.serverError(error))
-                self.loading.onNext(false)
             }).disposed(by: disposeBag)
+    }
+    
+    override func onBind() {
+        super .onBind()
+        
+        loadNextPageTrigger
+            .subscribe {
+            print("loadNextPageTrigger")
+        }.disposed(by: disposeBag)
     }
 }
 
