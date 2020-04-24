@@ -1,5 +1,5 @@
 //
-//  HeroDetailView.swift
+//  CharacterDetailView.swift
 //  RxMVVM
 //
 //  Created by Dmitry Y. on 4/23/20.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-final class HeroDetailView: MVVMView {
+final class CharacterDetailView: MVVMView {
     
     override func addSubviews() {
         super.addSubviews()

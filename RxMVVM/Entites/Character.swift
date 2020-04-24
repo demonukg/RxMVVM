@@ -16,7 +16,7 @@ struct Character: Decodable {
     
     let description: String
     
-    let thumbnail: String
+    let thumbnail: Thumbnail
     
     enum CodingKeys: String, CodingKey {
         

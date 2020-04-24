@@ -1,5 +1,5 @@
 //
-//  HeroDetailViewModel.swift
+//  HeroesViewModel.swift
 //  RxMVVM
 //
 //  Created by Dmitry Y. on 4/23/20.
@@ -7,14 +7,13 @@
 //
 
 import Foundation
-import Foundation
 import RxSwift
 
-protocol HeroDetailViewModelInterface {
+protocol CharactersViewModelInterface: MVVMViewModelInterface {
     
 }
 
-final class HeroDetailViewModel: MVVMViewModel, HeroDetailViewModelInterface {
+final class CharactersViewModel: MVVMViewModel, CharactersViewModelInterface {
     
     override func onBind() {
         super .onBind()

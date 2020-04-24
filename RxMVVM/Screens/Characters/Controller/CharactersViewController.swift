@@ -1,5 +1,5 @@
 //
-//  HeroesViewController.swift
+//  CharactersViewController.swift
 //  RxMVVM
 //
 //  Created by Dmitry Y. on 4/23/20.
@@ -12,13 +12,13 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-protocol HeroesViewControllerInterface: UIViewController {
+protocol CharactersViewControllerInterface: AnyObject {
     
 }
 
-final class HeroesViewController<ViewModel: HeroesViewModel>: MVVMViewController<HeroesView, ViewModel>, HeroesViewControllerInterface {
+final class CharactersViewController<ViewModel: CharactersViewModelInterface>: MVVMViewController<CharacterView, ViewModel>, CharactersViewControllerInterface {
     
-    override func bind(view: HeroesView) {
+    override func bind(view: CharacterView) {
         super.bind(view: view)
         
     }
@@ -28,7 +28,7 @@ final class HeroesViewController<ViewModel: HeroesViewModel>: MVVMViewController
         
     }
     
-    override func bind(viewModel: ViewModel, to view: HeroesView) {
+    override func bind(viewModel: ViewModel, to view: CharacterView) {
         super.bind(viewModel: viewModel, to: view)
         
     }

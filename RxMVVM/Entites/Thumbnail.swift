@@ -10,6 +10,10 @@ import Foundation
 
 struct Thumbnail: Decodable {
     
+    var url: URL? {
+        return URL(string: "\(path).\(ext)")
+    }
+    
     let path: String
     
     let ext: String
