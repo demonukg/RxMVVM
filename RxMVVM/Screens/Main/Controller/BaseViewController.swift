@@ -22,8 +22,6 @@ final class BaseViewController<ViewModel: BaseViewModel>: MVVMViewController<Bas
     
     //let comics: PublishSubject<[Comics]> = PublishSubject()
     
-    let disposeBag = DisposeBag()
-    
     let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Comics>>(
         configureCell: { (_, collectionView, indexPath, item: Comics) in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComicsCollectionViewCell.reuseId, for: indexPath) as! ComicsCollectionViewCell

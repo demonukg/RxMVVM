@@ -23,9 +23,6 @@ final class ComicsViewController<ViewModel: AlbumViewModel>: MVVMViewController<
     let comics: PublishSubject<[Comics]> = PublishSubject()
     
     
-    private let disposeBag = DisposeBag()
-    
-    
     override func contentViewDidLoad(_ view: ComicsView) {
         super.contentViewDidLoad(view)
         

@@ -18,8 +18,6 @@ protocol HeroDetailViewContrillerInterface: UIViewController {
 
 final class HeroDetailViewContriller<ViewModel: HeroDetailViewModel>: MVVMViewController<HeroDetailView, ViewModel>, HeroDetailViewContrillerInterface {
     
-    let disposeBag = DisposeBag()
-    
     override func bind(view: HeroDetailView) {
         super.bind(view: view)
         

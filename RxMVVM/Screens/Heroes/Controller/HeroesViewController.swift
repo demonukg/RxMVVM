@@ -18,8 +18,6 @@ protocol HeroesViewControllerInterface: UIViewController {
 
 final class HeroesViewController<ViewModel: HeroesViewModel>: MVVMViewController<HeroesView, ViewModel>, HeroesViewControllerInterface {
     
-    let disposeBag = DisposeBag()
-    
     override func bind(view: HeroesView) {
         super.bind(view: view)
         

@@ -15,9 +15,6 @@ protocol HeroesViewModelInterface {
 
 final class HeroesViewModel: MVVMViewModel, HeroesViewModelInterface {
     
-    private let disposeBag = DisposeBag()
-    
-    
     override func onBind() {
         super .onBind()
         

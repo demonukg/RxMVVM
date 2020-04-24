@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 enum MainError {
     
@@ -32,16 +33,34 @@ protocol MVVMViewModelInterface: AnyObject {
 }
 
 class MVVMViewModel: MVVMViewModelInterface {
+    
+    let willAppear: PublishSubject<Bool> = PublishSubject()
+    
+    let didAppear: PublishSubject<Bool> = PublishSubject()
+    
+    let willDisappear: PublishSubject<Bool> = PublishSubject()
+    
+    let didDisappear: PublishSubject<Bool> = PublishSubject()
+    
+    let disposeBag = DisposeBag()
   
     init() { }
     
     func onBind() { }
 
-    func viewWillAppear(_ animated: Bool) { }
+    final func viewWillAppear(_ animated: Bool) {
+        willAppear.onNext(animated)
+    }
 
-    func viewDidAppear(_ animated: Bool) { }
+    final func viewDidAppear(_ animated: Bool) {
+        didAppear.onNext(animated)
+    }
 
-    func viewWillDisappear(_ animated: Bool) { }
+    final func viewWillDisappear(_ animated: Bool) {
+        willDisappear.onNext(animated)
+    }
 
-    func viewDidDisappear(_ animated: Bool) { }
+    final func viewDidDisappear(_ animated: Bool) {
+        didDisappear.onNext(animated)
+    }
 }

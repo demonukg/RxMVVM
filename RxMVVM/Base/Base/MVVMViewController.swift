@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RxCocoa
+import RxSwift
 import NVActivityIndicatorView
 
 protocol MVVMViewControllerInterface: ViewControllerInterface {
@@ -22,7 +23,9 @@ protocol MVVMViewControllerInterface: ViewControllerInterface {
 class MVVMViewController<ContentView: UIView, ViewModel: MVVMViewModelInterface>: ViewController<ContentView>, MVVMViewControllerInterface, NVActivityIndicatorViewable {
   
     let viewModel: ViewModel
-  
+    
+    let disposeBag = DisposeBag()
+    
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
         super.init()
