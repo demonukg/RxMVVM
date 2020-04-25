@@ -69,6 +69,14 @@ final class CharactersViewController<ViewModel: CharactersViewModelInterface>: M
             .bind(to: view.tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
+        view.tableView
+            .rx.contentOffset
+            .asDriver().drive(onNext: { (_) in
+                view.tableView.isNearVerticalEdge() && viewModel.shouldLoadNextPage
+                    ? viewModel.loadNextPageTrigger.onNext(())
+                    : ()
+            }).disposed(by: disposeBag)
+        
     }
 
     

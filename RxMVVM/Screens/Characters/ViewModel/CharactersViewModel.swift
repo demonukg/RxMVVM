@@ -13,36 +13,68 @@ protocol CharactersViewModelInterface: MVVMViewModelInterface {
     
     var searchText: PublishSubject<String> { get }
     
-    var characters: PublishSubject<[Character]> { get }
+    var characters: BehaviorSubject<[Character]> { get }
+    
+    var loadNextPageTrigger: PublishSubject<Void> { get }
     
     var error: PublishSubject<MainError> { get }
+    
+    var shouldLoadNextPage: Bool { get set }
     
 }
 
 final class CharactersViewModel: MVVMViewModel, CharactersViewModelInterface {
     
+    let loadNextPageTrigger: PublishSubject<Void> = PublishSubject()
+    
     let error: PublishSubject<MainError> = PublishSubject()
     
     let searchText: PublishSubject<String> = PublishSubject()
     
-    var characters: PublishSubject<[Character]> = PublishSubject()
+    let characters: BehaviorSubject<[Character]> = BehaviorSubject(value: [])
+    
+    var shouldLoadNextPage: Bool = false
+    
+    private var currentText: String = ""
     
     override func onBind() {
         super .onBind()
         
         searchText.subscribe(onNext: { (text) in
             self.makeRequest(name: text)
-            }).disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
+        
+        loadNextPageTrigger.subscribe(onNext: { _ in
+            self.shouldLoadNextPage = false
+            print("loadNextPageTrigger")
+            self.makePaginationRequest()
+        }).disposed(by: disposeBag)
         
     }
     
     func makeRequest(name: String) {
+        currentText = name
         getCharacters(name: name)
             .subscribe(onNext: { characters in
+                self.shouldLoadNextPage = true
                 self.characters.onNext(characters.data.results)
             }, onError: { error in
                 self.error.onNext(.serverError(error))
             }).disposed(by: disposeBag)
+    }
+    
+    func makePaginationRequest() {
+        do {
+            getCharacters(name: currentText, offset: try characters.value().count)
+            .subscribe(onNext: { response in
+                self.shouldLoadNextPage = response.data.count == 0 ? false : true
+                try? self.characters.onNext(self.characters.value() + response.data.results)
+            }, onError: { error in
+                self.error.onNext(.serverError(error))
+            }).disposed(by: disposeBag)
+        } catch {
+            self.error.onNext(.internalError(error.localizedDescription))
+        }
     }
 }
 

@@ -12,7 +12,7 @@ struct GetCharactersResponse: Decodable {
     
     let status: String
     
-    let data: ComicsData
+    let data: ResponseData
     
     enum CodingKeys: String, CodingKey {
         
@@ -26,11 +26,15 @@ struct GetCharactersResponse: Decodable {
 
 extension GetCharactersResponse {
     
-    struct ComicsData: Decodable {
+    struct ResponseData: Decodable {
+        
+        let count: Int
         
         let results: [Character]
         
         enum CodingKeys: String, CodingKey {
+            
+            case count
             
             case results
             
