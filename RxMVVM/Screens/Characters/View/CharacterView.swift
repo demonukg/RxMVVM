@@ -30,15 +30,15 @@ final class CharacterView: MVVMView {
     override func addSubviews() {
         super.addSubviews()
         
-        tableView.tableHeaderView = searchBar
         addSubview(tableView)
+        tableView.tableHeaderView = searchBar
     }
     
     override func makeConstraints() {
         super.makeConstraints()
         
         tableView.snp.makeConstraints {
-            $0.edges.equalTo(self)
+            $0.edges.equalTo(self.safeAreaLayoutGuide)
         }
     }
 }

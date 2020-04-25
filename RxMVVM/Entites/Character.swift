@@ -10,7 +10,7 @@ import Foundation
 
 struct Character: Decodable {
     
-    let id: String
+    let id: Int
     
     let name: String
     

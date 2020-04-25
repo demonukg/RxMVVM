@@ -17,6 +17,7 @@ final class CharacterTableViewCell: MVVMTableViewCell {
     var character: Character! {
         didSet {
             guard let character = character else { return }
+            characterImageView.image = nil
             if let url = character.thumbnail.url {
                 characterImageView.af.setImage(withURL: url)
             }

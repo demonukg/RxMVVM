@@ -53,6 +53,7 @@
 		0AEC4E81242FD65300058652 /* ComicsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC4E80242FD65300058652 /* ComicsCollectionViewCell.swift */; };
 		0AEC67282430D579004A01DD /* Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC67272430D579004A01DD /* Reactive.swift */; };
 		0AEC672B2430FE86004A01DD /* AlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEC672A2430FE86004A01DD /* AlertControllerFactory.swift */; };
+		0AFDBD5824548D7D00A59D26 /* GetCharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFDBD5724548D7D00A59D26 /* GetCharactersResponse.swift */; };
 		7DD5EF09B014DAC8CECC16E9 /* libPods-RxMVVM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AE2BFBC65CA79C4C51044D3 /* libPods-RxMVVM.a */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		0AEC4E80242FD65300058652 /* ComicsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsCollectionViewCell.swift; sourceTree = "<group>"; };
 		0AEC67272430D579004A01DD /* Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reactive.swift; sourceTree = "<group>"; };
 		0AEC672A2430FE86004A01DD /* AlertControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerFactory.swift; sourceTree = "<group>"; };
+		0AFDBD5724548D7D00A59D26 /* GetCharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCharactersResponse.swift; sourceTree = "<group>"; };
 		33EE17DEC0444634E21AC85F /* Pods-RxMVVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMVVM.debug.xcconfig"; path = "Target Support Files/Pods-RxMVVM/Pods-RxMVVM.debug.xcconfig"; sourceTree = "<group>"; };
 		35BCD3705CC4A924C747CA51 /* Pods-RxMVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMVVM.release.xcconfig"; path = "Target Support Files/Pods-RxMVVM/Pods-RxMVVM.release.xcconfig"; sourceTree = "<group>"; };
 		3AE2BFBC65CA79C4C51044D3 /* libPods-RxMVVM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RxMVVM.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				0A8ACA7824326B7800A341A7 /* GetComicsResponse.swift */,
+				0AFDBD5724548D7D00A59D26 /* GetCharactersResponse.swift */,
 				0A8ACA7C24326BBC00A341A7 /* GetComicsCharactersResponse.swift */,
 				0A8ACA7E24326CAE00A341A7 /* GetCharacterRespose.swift */,
 			);
@@ -621,6 +624,7 @@
 				0A6715EF243242A900E84D0F /* RouterInterface.swift in Sources */,
 				0A8FE720242F7F640088912D /* ComicsViewController.swift in Sources */,
 				0A99A7DA245218E4000BB279 /* CharacterDetailViewModel.swift in Sources */,
+				0AFDBD5824548D7D00A59D26 /* GetCharactersResponse.swift in Sources */,
 				0A8ACA762432696200A341A7 /* CharacterRouter.swift in Sources */,
 				0A8ACA7924326B7800A341A7 /* GetComicsResponse.swift in Sources */,
 			);
