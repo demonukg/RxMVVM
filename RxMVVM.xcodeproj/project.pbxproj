@@ -147,8 +147,8 @@
 		0A8ACA7724326B5D00A341A7 /* Responses */ = {
 			isa = PBXGroup;
 			children = (
-				0A8ACA7824326B7800A341A7 /* GetComicsResponse.swift */,
 				0AFDBD5724548D7D00A59D26 /* GetCharactersResponse.swift */,
+				0A8ACA7824326B7800A341A7 /* GetComicsResponse.swift */,
 				0A8ACA7C24326BBC00A341A7 /* GetComicsCharactersResponse.swift */,
 				0A8ACA7E24326CAE00A341A7 /* GetCharacterRespose.swift */,
 			);

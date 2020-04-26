@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
-import RxDataSources
 
 protocol CharacterDetailViewContrillerInterface: AnyObject {
     

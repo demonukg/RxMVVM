@@ -43,13 +43,14 @@ final class CharactersViewModel: MVVMViewModel, CharactersViewModelInterface {
         searchText
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
             .subscribe(onNext: { (text) in
-            self.makeRequest(name: text)
-        }).disposed(by: disposeBag)
+                self.makeRequest(name: text)
+            }).disposed(by: disposeBag)
         
-        loadNextPageTrigger.subscribe(onNext: { _ in
-            self.shouldLoadNextPage = false
-            self.makePaginationRequest()
-        }).disposed(by: disposeBag)
+        loadNextPageTrigger
+            .subscribe(onNext: { _ in
+                self.shouldLoadNextPage = false
+                self.makePaginationRequest()
+            }).disposed(by: disposeBag)
         
     }
     

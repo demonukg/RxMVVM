@@ -28,9 +28,13 @@ extension GetComicsResponse {
     
     struct ComicsData: Decodable {
         
+        let count: Int
+        
         let results: [Comics]
         
         enum CodingKeys: String, CodingKey {
+            
+            case count
             
             case results
             

@@ -15,25 +15,31 @@ enum CharacterRouter  {
     
     case getCharacters(name: String, limit: Int?, offset: Int?)
     
+    case getCharacterComics(characterId: Int, limit: Int?, offset: Int?)
 }
 
 extension CharacterRouter: RouterInterface {
     
     var method: HTTPMethod {
         switch self {
-        case .getCharacter, .getCharacters:
+        case .getCharacter, .getCharacters, .getCharacterComics:
             return .get
         }
     }
     
     var params: [String : Any] {
         switch self {
-        case  .getCharacter:
+        case .getCharacter:
             let params = [String: Any]()
             return params
         case let .getCharacters(name, limit, offset):
             var params = [String: Any]()
             params["nameStartsWith"] = name
+            params["limit"] = limit
+            params["offset"] = offset
+            return params
+        case let .getCharacterComics(_, limit, offset):
+            var params = [String: Any]()
             params["limit"] = limit
             params["offset"] = offset
             return params
@@ -47,6 +53,8 @@ extension CharacterRouter: RouterInterface {
             relativePath = "/v1/public/characters/\(characterId)"
         case .getCharacters:
             relativePath = "/v1/public/characters"
+        case let .getCharacterComics(characterId, _, _):
+            relativePath = "/v1/public/characters/\(characterId)/comics"
         }
         return Constants.baseURL.appendingPathComponent(relativePath)
     }

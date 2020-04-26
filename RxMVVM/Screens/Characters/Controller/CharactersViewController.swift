@@ -81,8 +81,8 @@ final class CharactersViewController<ViewModel: CharactersViewModelInterface>: M
         
         viewModel.characters
             .map { [SectionModel(model: "Heroes of Marvel", items: $0)] }
-            .subscribeOn(MainScheduler.instance)
-            .bind(to: view.tableView.rx.items(dataSource: dataSource))
+            .asDriver(onErrorJustReturn: [])
+            .drive(view.tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
         view.tableView
