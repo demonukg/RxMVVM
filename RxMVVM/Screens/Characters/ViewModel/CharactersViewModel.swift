@@ -40,13 +40,14 @@ final class CharactersViewModel: MVVMViewModel, CharactersViewModelInterface {
     override func onBind() {
         super .onBind()
         
-        searchText.subscribe(onNext: { (text) in
+        searchText
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .userInteractive))
+            .subscribe(onNext: { (text) in
             self.makeRequest(name: text)
         }).disposed(by: disposeBag)
         
         loadNextPageTrigger.subscribe(onNext: { _ in
             self.shouldLoadNextPage = false
-            print("loadNextPageTrigger")
             self.makePaginationRequest()
         }).disposed(by: disposeBag)
         
@@ -82,7 +83,7 @@ final class CharactersViewModel: MVVMViewModel, CharactersViewModelInterface {
 
 private extension CharactersViewModel {
     
-    func getCharacters(name: String, limit: Int? = 10, offset: Int? = nil) -> Observable<GetCharactersResponse> {
+    func getCharacters(name: String, limit: Int? = 20, offset: Int? = nil) -> Observable<GetCharactersResponse> {
         return Networking.requestRx(CharacterRouter.getCharacters(name: name, limit: limit, offset: offset))
     }
     

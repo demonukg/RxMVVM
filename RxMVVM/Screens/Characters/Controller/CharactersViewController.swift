@@ -26,13 +26,29 @@ final class CharactersViewController<ViewModel: CharactersViewModelInterface>: M
         }
     )
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func contentViewDidLoad(_ view: ContentView) {
+        super.contentViewDidLoad(view)
+        
+        navigationItem.title = "Heroes of Marvel"
     }
     
     override func bind(view: CharacterView) {
         super.bind(view: view)
         
+        view.searchBar
+            .rx.searchButtonClicked
+            .asDriver().drive(onNext: { _ in
+                view.searchBar.endEditing(true)
+            }).disposed(by: disposeBag)
+        
+        view.tableView
+            .rx.modelSelected(Character.self)
+            .subscribe(onNext: { (character) in
+                self.navigationController?.pushViewController(CharacterDetailViewContriller(viewModel: CharacterDetailViewModel(), character: character), animated: true)
+                if let index = view.tableView.indexPathForSelectedRow{
+                    view.tableView.deselectRow(at: index, animated: true)
+                }
+            }).disposed(by: disposeBag)
         
     }
     

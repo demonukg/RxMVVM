@@ -18,6 +18,20 @@ protocol CharacterDetailViewContrillerInterface: AnyObject {
 
 final class CharacterDetailViewContriller<ViewModel: CharacterDetailViewModelInterface>: MVVMViewController<CharacterDetailView, ViewModel>, CharacterDetailViewContrillerInterface {
     
+    private var chatacter: Character
+    
+    init(viewModel: ViewModel, character: Character) {
+        chatacter = character
+        super.init(viewModel: viewModel)
+    }
+    
+    override func contentViewDidLoad(_ view: CharacterDetailView) {
+        super.contentViewDidLoad(view)
+        
+        navigationItem.title = chatacter.name
+        view.character = chatacter
+    }
+    
     override func bind(view: CharacterDetailView) {
         super.bind(view: view)
         

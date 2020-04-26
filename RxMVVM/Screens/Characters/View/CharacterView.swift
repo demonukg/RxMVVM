@@ -15,6 +15,8 @@ final class CharacterView: MVVMView {
     let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
+        searchBar.returnKeyType = .done
+        searchBar.placeholder = "Enter a name like Spider-Man..."
         searchBar.sizeToFit()
         return searchBar
     }()
@@ -23,6 +25,8 @@ final class CharacterView: MVVMView {
         let tableView = UITableView()
         tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.reuseId)
         tableView.rowHeight = 70.0
+        tableView.keyboardDismissMode = .onDrag
+        tableView.tableFooterView = UIView()
         return tableView
     }()
     
