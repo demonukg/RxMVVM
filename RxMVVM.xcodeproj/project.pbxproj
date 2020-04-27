@@ -292,6 +292,7 @@
 		0A99A7CB245215E5000BB279 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0AEC4E76242FCC3B00058652 /* Cell */,
 				0A99A7D7245218BA000BB279 /* CharacterDetailView.swift */,
 			);
 			path = View;
@@ -401,7 +402,6 @@
 		0AE64456242F5CEE001EEEFB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0AEC4E76242FCC3B00058652 /* Cell */,
 				0AE6445B242F5D27001EEEFB /* BaseView.swift */,
 			);
 			path = View;
