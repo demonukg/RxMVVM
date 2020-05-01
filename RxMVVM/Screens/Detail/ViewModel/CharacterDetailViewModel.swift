@@ -20,7 +20,10 @@ protocol CharacterDetailViewModelInterface: MVVMViewModelInterface {
     
     var comics: BehaviorSubject<[Comics]> { get }
     
+    var loading: PublishSubject<Bool> { get }
+    
     var shouldLoadNextPage: Bool { get set }
+    
 }
 
 final class CharacterDetailViewModel: MVVMViewModel, CharacterDetailViewModelInterface {
@@ -32,6 +35,8 @@ final class CharacterDetailViewModel: MVVMViewModel, CharacterDetailViewModelInt
     let comics: BehaviorSubject<[Comics]> = BehaviorSubject(value: [])
     
     let characterId: BehaviorSubject<Int> = BehaviorSubject(value: 0)
+    
+    let loading: PublishSubject<Bool> = PublishSubject()
     
     var shouldLoadNextPage: Bool = false
     
@@ -45,11 +50,20 @@ final class CharacterDetailViewModel: MVVMViewModel, CharacterDetailViewModelInt
                 self.currentId = id
                 self.makeRequest(id)
             }).disposed(by: disposeBag)
+        
+        loadNextPageTrigger
+        .subscribe(onNext: { _ in
+            self.shouldLoadNextPage = false
+            self.makePaginationRequest()
+        }).disposed(by: disposeBag)
     }
     
     func makeRequest(_ id: Int) {
+        loading.onNext(true)
         getCharacterComics(id: id)
-            .subscribe(onNext: { comics in
+            .do(onDispose: {
+                self.loading.onNext(false)
+            }).subscribe(onNext: { comics in
                 self.shouldLoadNextPage = true
                 self.comics.onNext(comics.data.results)
             }, onError: { error in
@@ -77,7 +91,7 @@ final class CharacterDetailViewModel: MVVMViewModel, CharacterDetailViewModelInt
 
 private extension CharacterDetailViewModel {
     
-    func getCharacterComics(id: Int, limit: Int? = 20, offset: Int? = nil) -> Observable<GetComicsResponse> {
+    func getCharacterComics(id: Int, limit: Int? = 5, offset: Int? = nil) -> Observable<GetComicsResponse> {
         return Networking.requestRx(CharacterRouter.getCharacterComics(characterId: id, limit: limit, offset: offset))
     }
     

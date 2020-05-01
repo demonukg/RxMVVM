@@ -17,10 +17,12 @@ final class ComicsCollectionViewCell: MVVMCollectionViewCell {
     
     var comics: Comics! {
         didSet {
-            comicsNameLabel.text = comics.title
+            activityIndicator.startAnimating()
             comicsImageView.image = nil
             if let url = comics.thumbnail.url {
-                comicsImageView.af.setImage(withURL: url)
+                comicsImageView.af.setImage(withURL: url) { _ in
+                    self.activityIndicator.stopAnimating()
+                }
             }
         }
     }
@@ -33,29 +35,17 @@ final class ComicsCollectionViewCell: MVVMCollectionViewCell {
         return imageView
     }()
     
-    private let comicsNameLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        return label
+    private let activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.hidesWhenStopped = true
+        return activityIndicator
     }()
-    
-//    private let stackView: UIStackView = {
-//        let stackView = UIStackView()
-//        stackView.axis = .vertical
-//        stackView.alignment = .center
-//        stackView.distribution = .fill
-//        stackView.spacing = 0.0
-//        return stackView
-//    }()
     
     override func addSubviews() {
         super.addSubviews()
         
-        //stackView.addArrangedSubview(comicsImageView)
-        //stackView.addArrangedSubview(comicsNameLabel)
-        //addSubview(stackView)
         addSubview(comicsImageView)
-        comicsImageView.addSubview(comicsNameLabel)
+        comicsImageView.addFullSubview(activityIndicator)
     }
     
     override func makeConstraints() {
@@ -64,12 +54,6 @@ final class ComicsCollectionViewCell: MVVMCollectionViewCell {
         comicsImageView.snp.makeConstraints {
             $0.edges.equalTo(self)
         }
-        
-        comicsNameLabel.snp.makeConstraints {
-            $0.centerX.equalTo(comicsImageView.snp.centerX)
-            $0.left.top.right.equalTo(comicsImageView).offset(10)
-        }
-        
     }
     
 }

@@ -42,7 +42,23 @@ final class CharacterDetailViewContriller<ViewModel: CharacterDetailViewModelInt
     override func bind(viewModel: ViewModel) {
         super.bind(viewModel: viewModel)
         
-        viewModel.characterId.onNext(chatacter.id)
+        viewModel.characterId
+            .onNext(chatacter.id)
+        
+        viewModel.loading
+            .bind(to: self.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
+        viewModel.error
+        .subscribeOn(MainScheduler.instance)
+            .subscribe(onNext: { (error) in
+                switch error {
+                case .internalError(let error):
+                    self.present(AlertControllerFactory.controller(ofType: .messageWithButton(message: error)), animated: true)
+                case .serverError(let error):
+                    self.present(AlertControllerFactory.controller(ofType: .error(error: error)), animated: true)
+                }
+            }).disposed(by: disposeBag)
     }
     
     override func bind(viewModel: ViewModel, to view: CharacterDetailView) {
@@ -53,6 +69,14 @@ final class CharacterDetailViewContriller<ViewModel: CharacterDetailViewModelInt
             .drive(view.collectionView.rx.items(cellIdentifier: ComicsCollectionViewCell.reuseId, cellType: ComicsCollectionViewCell.self)) { row, item, cell in
                 cell.comics = item
             }.disposed(by: disposeBag)
+        
+        view.collectionView
+            .rx.contentOffset
+            .asDriver().drive(onNext: { (_) in
+                view.collectionView.isNearHorizontalEdge() && viewModel.shouldLoadNextPage
+                    ? viewModel.loadNextPageTrigger.onNext(())
+                    : ()
+            }).disposed(by: disposeBag)
         
     }
     
