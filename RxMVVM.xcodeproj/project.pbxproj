@@ -22,9 +22,13 @@
 		0A99A7CF2452163B000BB279 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A99A7CE2452163B000BB279 /* CharacterView.swift */; };
 		0A99A7D12452167B000BB279 /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A99A7D02452167B000BB279 /* CharactersViewModel.swift */; };
 		0A99A7D42452169A000BB279 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A99A7D32452169A000BB279 /* CharactersViewController.swift */; };
-		0A99A7D624521874000BB279 /* CharacterDetailViewContriller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A99A7D524521874000BB279 /* CharacterDetailViewContriller.swift */; };
+		0A99A7D624521874000BB279 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A99A7D524521874000BB279 /* CharacterDetailViewController.swift */; };
 		0A99A7D8245218BA000BB279 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A99A7D7245218BA000BB279 /* CharacterDetailView.swift */; };
 		0A99A7DA245218E4000BB279 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A99A7D9245218E4000BB279 /* CharacterDetailViewModel.swift */; };
+		0AB2B999245DA5D20032900A /* ServicesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB2B998245DA5D20032900A /* ServicesAssembly.swift */; };
+		0AB2B99B245DA6900032900A /* DetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB2B99A245DA6900032900A /* DetailAssembly.swift */; };
+		0AB2B99D245DA6A70032900A /* CharactersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB2B99C245DA6A70032900A /* CharactersAssembly.swift */; };
+		0AB2B99F245DA8170032900A /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB2B99E245DA8170032900A /* Assembler.swift */; };
 		0AB5ACC0244328FC00B49CA1 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB5ACBF244328FC00B49CA1 /* UIScrollView.swift */; };
 		0AE64434242F4D46001EEEFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE64433242F4D46001EEEFB /* AppDelegate.swift */; };
 		0AE64436242F4D46001EEEFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE64435242F4D46001EEEFB /* SceneDelegate.swift */; };
@@ -61,9 +65,13 @@
 		0A99A7CE2452163B000BB279 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 		0A99A7D02452167B000BB279 /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
 		0A99A7D32452169A000BB279 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
-		0A99A7D524521874000BB279 /* CharacterDetailViewContriller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewContriller.swift; sourceTree = "<group>"; };
+		0A99A7D524521874000BB279 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		0A99A7D7245218BA000BB279 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 		0A99A7D9245218E4000BB279 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
+		0AB2B998245DA5D20032900A /* ServicesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAssembly.swift; sourceTree = "<group>"; };
+		0AB2B99A245DA6900032900A /* DetailAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAssembly.swift; sourceTree = "<group>"; };
+		0AB2B99C245DA6A70032900A /* CharactersAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersAssembly.swift; sourceTree = "<group>"; };
+		0AB2B99E245DA8170032900A /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
 		0AB5ACBF244328FC00B49CA1 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		0AE64430242F4D46001EEEFB /* RxMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE64433242F4D46001EEEFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +145,7 @@
 				0AEC67272430D579004A01DD /* Reactive.swift */,
 				0A6715F02432435800E84D0F /* HTTPMethod.swift */,
 				0AB5ACBF244328FC00B49CA1 /* UIScrollView.swift */,
+				0AB2B99E245DA8170032900A /* Assembler.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -144,6 +153,7 @@
 		0A99A7C6245215A6000BB279 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				0AB2B99C245DA6A70032900A /* CharactersAssembly.swift */,
 				0A99A7CA245215D8000BB279 /* Controller */,
 				0A99A7C9245215D1000BB279 /* ViewModel */,
 				0A99A7C8245215CC000BB279 /* View */,
@@ -154,6 +164,7 @@
 		0A99A7C7245215BD000BB279 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				0AB2B99A245DA6900032900A /* DetailAssembly.swift */,
 				0A99A7CD245215F2000BB279 /* Controller */,
 				0A99A7CC245215EA000BB279 /* ViewModel */,
 				0A99A7CB245215E5000BB279 /* View */,
@@ -206,7 +217,7 @@
 		0A99A7CD245215F2000BB279 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0A99A7D524521874000BB279 /* CharacterDetailViewContriller.swift */,
+				0A99A7D524521874000BB279 /* CharacterDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -232,9 +243,10 @@
 		0AE64432242F4D46001EEEFB /* RxMVVM */ = {
 			isa = PBXGroup;
 			children = (
-				0AE64447242F4EA7001EEEFB /* AppCoordinator.swift */,
 				0AE64433242F4D46001EEEFB /* AppDelegate.swift */,
 				0AE64435242F4D46001EEEFB /* SceneDelegate.swift */,
+				0AE64447242F4EA7001EEEFB /* AppCoordinator.swift */,
+				0AB2B998245DA5D20032900A /* ServicesAssembly.swift */,
 				0A8ACA722432688300A341A7 /* Constants.swift */,
 				0AE64441242F4D47001EEEFB /* Info.plist */,
 				0AE6443C242F4D47001EEEFB /* Assets.xcassets */,
@@ -437,6 +449,7 @@
 				0A8ACA8524326F5D00A341A7 /* Thumbnail.swift in Sources */,
 				0A8ACA8124326E6F00A341A7 /* Character.swift in Sources */,
 				0AE64448242F4EA7001EEEFB /* AppCoordinator.swift in Sources */,
+				0AB2B999245DA5D20032900A /* ServicesAssembly.swift in Sources */,
 				0A6715ED24323A7E00E84D0F /* Networking.swift in Sources */,
 				0A8ACA732432688300A341A7 /* Constants.swift in Sources */,
 				0AEC4E7F242FCF8500058652 /* MVVMCollectionViewCell.swift in Sources */,
@@ -445,6 +458,7 @@
 				0AE6444E242F526F001EEEFB /* MVVMViewController.swift in Sources */,
 				0AEC672B2430FE86004A01DD /* AlertControllerFactory.swift in Sources */,
 				0AEC4E7D242FCD9600058652 /* MVVMTableViewCell.swift in Sources */,
+				0AB2B99B245DA6900032900A /* DetailAssembly.swift in Sources */,
 				0AEC67282430D579004A01DD /* Reactive.swift in Sources */,
 				0A99A7D8245218BA000BB279 /* CharacterDetailView.swift in Sources */,
 				0A8ACA8324326E8200A341A7 /* Comics.swift in Sources */,
@@ -454,14 +468,16 @@
 				0A6715F624324DB300E84D0F /* ComicsRouter.swift in Sources */,
 				0A99A7D42452169A000BB279 /* CharactersViewController.swift in Sources */,
 				0A99A7CF2452163B000BB279 /* CharacterView.swift in Sources */,
+				0AB2B99F245DA8170032900A /* Assembler.swift in Sources */,
 				0AE64436242F4D46001EEEFB /* SceneDelegate.swift in Sources */,
 				0AE6444D242F526F001EEEFB /* MVVMView.swift in Sources */,
 				0A8ACA7F24326CAE00A341A7 /* GetCharacterRespose.swift in Sources */,
 				0A8FE72E242FA4FD0088912D /* UIView.swift in Sources */,
 				0AE8A392245365F10073250B /* CharacterTableViewCell.swift in Sources */,
+				0AB2B99D245DA6A70032900A /* CharactersAssembly.swift in Sources */,
 				0A99A7D12452167B000BB279 /* CharactersViewModel.swift in Sources */,
 				0AE6444F242F526F001EEEFB /* MVVMViewModel.swift in Sources */,
-				0A99A7D624521874000BB279 /* CharacterDetailViewContriller.swift in Sources */,
+				0A99A7D624521874000BB279 /* CharacterDetailViewController.swift in Sources */,
 				0A6715EF243242A900E84D0F /* RouterInterface.swift in Sources */,
 				0A99A7DA245218E4000BB279 /* CharacterDetailViewModel.swift in Sources */,
 				0AFDBD5824548D7D00A59D26 /* GetCharactersResponse.swift in Sources */,

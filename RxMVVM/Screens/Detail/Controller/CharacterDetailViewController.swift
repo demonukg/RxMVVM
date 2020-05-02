@@ -11,11 +11,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol CharacterDetailViewContrillerInterface: AnyObject {
+typealias CharacterDetailController = UIViewController & CharacterDetailViewControllerInterface
+
+protocol CharacterDetailViewControllerInterface: AnyObject {
     
 }
 
-final class CharacterDetailViewContriller<ViewModel: CharacterDetailViewModelInterface>: MVVMViewController<CharacterDetailView, ViewModel>, CharacterDetailViewContrillerInterface, UICollectionViewDelegateFlowLayout {
+final class CharacterDetailViewController<ViewModel: CharacterDetailViewModelInterface>: MVVMViewController<CharacterDetailView, ViewModel>, CharacterDetailViewControllerInterface, UICollectionViewDelegateFlowLayout {
     
     private var chatacter: Character
     

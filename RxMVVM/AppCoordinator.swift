@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Swinject
 
 protocol AppCoordinatorInterface {
     
@@ -28,8 +29,7 @@ final class AppCoordinator: AppCoordinatorInterface {
     }
     
     func start() {
-        
-        window.rootViewController = UINavigationController(rootViewController: CharactersViewController(viewModel: CharactersViewModel()))//BaseViewController(viewModel: BaseViewModel())
+        window.rootViewController = UINavigationController(rootViewController: Assembler.shared.resolver.resolve(CharactersController.self)!)
     }
     
     

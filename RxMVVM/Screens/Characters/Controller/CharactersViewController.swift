@@ -11,6 +11,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import Swinject
+
+typealias CharactersController = UIViewController & CharactersViewControllerInterface
 
 protocol CharactersViewControllerInterface: AnyObject {
     
@@ -44,7 +47,7 @@ final class CharactersViewController<ViewModel: CharactersViewModelInterface>: M
         view.tableView
             .rx.modelSelected(Character.self)
             .subscribe(onNext: { (character) in
-                self.navigationController?.pushViewController(CharacterDetailViewContriller(viewModel: CharacterDetailViewModel(), character: character), animated: true)
+                self.navigationController?.pushViewController(Assembler.shared.resolver.resolve(CharacterDetailController.self, argument: character)!, animated: true)
                 if let index = view.tableView.indexPathForSelectedRow{
                     view.tableView.deselectRow(at: index, animated: true)
                 }

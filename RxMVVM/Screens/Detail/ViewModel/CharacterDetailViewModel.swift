@@ -42,6 +42,14 @@ final class CharacterDetailViewModel: MVVMViewModel, CharacterDetailViewModelInt
     
     private var currentId: Int = 0
     
+    private let networkService: NetworkingInterface
+    
+    init(networkService: NetworkingInterface) {
+        self.networkService = networkService
+        
+        super.init()
+    }
+    
     override func onBind() {
         super .onBind()
         
@@ -92,7 +100,7 @@ final class CharacterDetailViewModel: MVVMViewModel, CharacterDetailViewModelInt
 private extension CharacterDetailViewModel {
     
     func getCharacterComics(id: Int, limit: Int? = 5, offset: Int? = nil) -> Observable<GetComicsResponse> {
-        return Networking.requestRx(CharacterRouter.getCharacterComics(characterId: id, limit: limit, offset: offset))
+        return networkService.requestRx(CharacterRouter.getCharacterComics(characterId: id, limit: limit, offset: offset))
     }
     
 }

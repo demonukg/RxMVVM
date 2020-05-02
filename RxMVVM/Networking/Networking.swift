@@ -9,9 +9,15 @@
 import Alamofire
 import RxSwift
 
-final class Networking {
+protocol NetworkingInterface {
     
-    static func requestRx<T: Decodable> (_ urlRequest: URLRequestConvertible) -> Observable<T> {
+    func requestRx<T: Decodable> (_ urlRequest: URLRequestConvertible) -> Observable<T>
+    
+}
+
+final class Networking: NetworkingInterface {
+    
+    func requestRx<T: Decodable> (_ urlRequest: URLRequestConvertible) -> Observable<T> {
         return Observable<T>.create { observer in
             let request = AF.request(urlRequest).responseDecodable(of: T.self) { response in
                 switch response.result {

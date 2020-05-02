@@ -37,6 +37,14 @@ final class CharactersViewModel: MVVMViewModel, CharactersViewModelInterface {
     
     private var currentText: String = ""
     
+    private let networkService: NetworkingInterface
+    
+    init(networkService: NetworkingInterface) {
+        self.networkService = networkService
+        
+        super.init()
+    }
+    
     override func onBind() {
         super .onBind()
         
@@ -85,7 +93,7 @@ final class CharactersViewModel: MVVMViewModel, CharactersViewModelInterface {
 private extension CharactersViewModel {
     
     func getCharacters(name: String, limit: Int? = 20, offset: Int? = nil) -> Observable<GetCharactersResponse> {
-        return Networking.requestRx(CharacterRouter.getCharacters(name: name, limit: limit, offset: offset))
+        return networkService.requestRx(CharacterRouter.getCharacters(name: name, limit: limit, offset: offset))
     }
     
 }

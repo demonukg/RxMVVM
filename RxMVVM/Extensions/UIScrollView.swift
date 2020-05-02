@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 extension UIScrollView {
-    func isNearVerticalEdge(edgeOffset: CGFloat = 20.0) -> Bool {
+    func isNearVerticalEdge(edgeOffset: CGFloat = 50.0) -> Bool {
         return self.contentOffset.y + self.frame.size.height + edgeOffset > self.contentSize.height
     }
     
-    func isNearHorizontalEdge(edgeOffset: CGFloat = 20.0) -> Bool {
+    func isNearHorizontalEdge(edgeOffset: CGFloat = 50.0) -> Bool {
         return self.contentOffset.x + self.frame.size.width + edgeOffset > self.contentSize.width
     }
 }
