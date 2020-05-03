@@ -1,0 +1,343 @@
+{
+  "code": 200,
+  "status": "Ok",
+  "copyright": "© 2020 MARVEL",
+  "attributionText": "Data provided by Marvel. © 2020 MARVEL",
+  "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2020 MARVEL</a>",
+  "etag": "75e67f1be5a98101a1b5a0505ea91cc3dd96b127",
+  "data": {
+    "offset": 0,
+    "limit": 2,
+    "total": 57,
+    "count": 2,
+    "results": [
+      {
+        "id": 74793,
+        "digitalId": 50609,
+        "title": "Marvel Super Hero Adventures: Spider-Man - Web of Intrigue (2019) #1",
+        "issueNumber": 1,
+        "variantDescription": "",
+        "description": "Hold on to your hats! Spider-Man and his amicable arachnid companions are back in this action-packed tale of adventure for readers of all ages! Don’t miss all your favorite web-slingers in the latest issue of the web-tastic wonder-series that is MARVEL SUPER HERO ADVENTURES!",
+        "modified": "2019-02-07T17:09:08-0500",
+        "isbn": "",
+        "upc": "75960609322900111",
+        "diamondCode": "",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "Hold on to your hats! Spider-Man and his amicable arachnid companions are back in this action-packed tale of adventure for readers of all ages! Don’t miss all your favorite web-slingers in the latest issue of the web-tastic wonder-series that is MARVEL SUPER HERO ADVENTURES!"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/74793",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/74793/marvel_super_hero_adventures_spider-man_-_web_of_intrigue_2019_1?utm_campaign=apiRef&utm_source=a71aed242ded875a2afe7d8787e3c923"
+          },
+          {
+            "type": "purchase",
+            "url": "http://comicstore.marvel.com/MARVEL-SUPER-HERO-ADVENTURES-SPIDER-MAN-WEB-OF-INTRIGUE-1-1/digital-comic/50609?utm_campaign=apiRef&utm_source=a71aed242ded875a2afe7d8787e3c923"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=50609&utm_campaign=apiRef&utm_source=a71aed242ded875a2afe7d8787e3c923"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/26905",
+          "name": "Marvel Super Hero Adventures: Spider-Man - Web of Intrigue (2019)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2019-02-13T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2019-01-21T00:00:00-0500"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2019-08-19T00:00:00-0400"
+          },
+          {
+            "type": "digitalPurchaseDate",
+            "date": "2020-03-31T23:08:00-0400"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 3.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/5/f0/5c5c55a34a038",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/5/f0/5c5c55a34a038",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/5c5c52a666d7f",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 7,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/74793/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/11401",
+              "name": "Various",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/3832",
+              "name": "Sholly Fisch",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/13471",
+              "name": "Jed Mackay",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/918",
+              "name": "Ty Templeton",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8652",
+              "name": "Jacob Chabot",
+              "role": "penciler (cover)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/12796",
+              "name": "Mario DelPennino",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/12457",
+              "name": "Edward Devin Lewis",
+              "role": "editor"
+            }
+          ],
+          "returned": 7
+        },
+        "characters": {
+          "available": 4,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/74793/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009157",
+              "name": "Spider-Girl (Anya Corazon)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1017603",
+              "name": "Spider-Gwen (Spider-Gwen)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009610",
+              "name": "Spider-Man"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1016181",
+              "name": "Spider-Man (Miles Morales)"
+            }
+          ],
+          "returned": 4
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/74793/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/166424",
+              "name": "cover from Marvel Super Hero Adventures: Spider-Man - TBD B (2019) #1",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/166425",
+              "name": "story from Marvel Super Hero Adventures: Spider-Man - TBD B (2019) #1",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/74793/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 74792,
+        "digitalId": 50341,
+        "title": "Marvel Super Hero Adventures: Spider-Man - Across the Spider-Verse (2019) #1",
+        "issueNumber": 1,
+        "variantDescription": "",
+        "description": "It’s a SPIDER-TACULAR adventure when Spider-Man is visited by his fellow web-slingers! What wall-crawling, web-swinging trouble will Peter Parker get into when he’s joined by Anya Corazon, Miles Morales and Spider-Gwen? Only one way to find out!",
+        "modified": "2018-12-26T17:03:52-0500",
+        "isbn": "",
+        "upc": "75960609321200111",
+        "diamondCode": "",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "It’s a SPIDER-TACULAR adventure when Spider-Man is visited by his fellow web-slingers! What wall-crawling, web-swinging trouble will Peter Parker get into when he’s joined by Anya Corazon, Miles Morales and Spider-Gwen? Only one way to find out!"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/74792",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/74792/marvel_super_hero_adventures_spider-man_-_across_the_spider-verse_2019_1?utm_campaign=apiRef&utm_source=a71aed242ded875a2afe7d8787e3c923"
+          },
+          {
+            "type": "purchase",
+            "url": "http://comicstore.marvel.com/MARVEL-SUPER-HERO-ADVENTURES-SPIDER-MAN-TBD-A-1-1/digital-comic/50341?utm_campaign=apiRef&utm_source=a71aed242ded875a2afe7d8787e3c923"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=50341&utm_campaign=apiRef&utm_source=a71aed242ded875a2afe7d8787e3c923"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/26904",
+          "name": "Marvel Super Hero Adventures: Spider-Man - Across the Spider-Verse (2019)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2019-01-02T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2018-12-03T00:00:00-0500"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2019-07-08T00:00:00-0400"
+          },
+          {
+            "type": "digitalPurchaseDate",
+            "date": "2019-01-16T16:35:00-0500"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 3.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/2/60/5c23ecedce7c5",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/2/60/5c23ecedce7c5",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/6/e0/5bd9d91a86372",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 4,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/74792/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/11401",
+              "name": "Various",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8652",
+              "name": "Jacob Chabot",
+              "role": "penciller (cover)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/13270",
+              "name": "Daniel Kibblesmith",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/12457",
+              "name": "Edward Devin Lewis",
+              "role": "editor"
+            }
+          ],
+          "returned": 4
+        },
+        "characters": {
+          "available": 4,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/74792/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009157",
+              "name": "Spider-Girl (Anya Corazon)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1017603",
+              "name": "Spider-Gwen (Spider-Gwen)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009610",
+              "name": "Spider-Man"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1016181",
+              "name": "Spider-Man (Miles Morales)"
+            }
+          ],
+          "returned": 4
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/74792/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/166422",
+              "name": "cover from Marvel Super Hero Adventures: Spider-Man - TBD a (2019) #1",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/166423",
+              "name": "story from Marvel Super Hero Adventures: Spider-Man - TBD a (2019) #1",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/74792/events",
+          "items": [],
+          "returned": 0
+        }
+      }
+    ]
+  }
+}

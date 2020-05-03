@@ -54,6 +54,7 @@ final class CharacterDetailViewModel: MVVMViewModel, CharacterDetailViewModelInt
         super .onBind()
         
         characterId
+            .filter { $0 != 0}
             .subscribe(onNext: { id in
                 self.currentId = id
                 self.makeRequest(id)
