@@ -13,7 +13,7 @@ enum CharacterRouter  {
     
     case getCharacter(characterId: Int)
     
-    case getCharacters(name: String, limit: Int?, offset: Int?)
+    case getCharacters(name: String, limit: Int? = 20, offset: Int? = nil)
     
     case getCharacterComics(characterId: Int, limit: Int?, offset: Int?)
 }

@@ -38,6 +38,7 @@ final class CharactersViewController<ViewModel: CharactersViewModelInterface>: M
     override func bind(view: CharacterView) {
         super.bind(view: view)
         
+        //TODO: - asDriver?
         view.searchBar
             .rx.searchButtonClicked
             .asDriver().drive(onNext: { _ in
@@ -59,8 +60,7 @@ final class CharactersViewController<ViewModel: CharactersViewModelInterface>: M
         super.bind(viewModel: viewModel)
         
         viewModel.error
-            .subscribeOn(MainScheduler.instance)
-            .subscribe(onNext: { (error) in
+            .drive(onNext: { (error) in
                 switch error {
                 case .internalError(let error):
                     self.present(AlertControllerFactory.controller(ofType: .messageWithButton(message: error)), animated: true)
@@ -76,25 +76,22 @@ final class CharactersViewController<ViewModel: CharactersViewModelInterface>: M
         
         view.searchBar
             .rx.text.orEmpty
-            .filter { $0.count != 0 }
-            .throttle(.milliseconds(600), scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
-            .bind(to: viewModel.searchText)
+            .bind(to: viewModel.search)
+            .disposed(by: disposeBag)
+        
+        view.tableView
+            .rx.reachedBottom(offset: 100.0)
+            .bind(to: viewModel.reachedBottom)
             .disposed(by: disposeBag)
         
         viewModel.characters
             .map { [SectionModel(model: "Heroes of Marvel", items: $0)] }
-            .asDriver(onErrorJustReturn: [])
             .drive(view.tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-        view.tableView
-            .rx.contentOffset
-            .asDriver().drive(onNext: { (_) in
-                view.tableView.isNearVerticalEdge() && viewModel.shouldLoadNextPage
-                    ? viewModel.loadNextPageTrigger.onNext(())
-                    : ()
-            }).disposed(by: disposeBag)
+        viewModel.isLoading
+            .drive(view.activityIndicator.rx.isAnimating)
+            .disposed(by: disposeBag)
         
     }
 

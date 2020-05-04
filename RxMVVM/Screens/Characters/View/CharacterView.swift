@@ -12,6 +12,14 @@ import SnapKit
 
 final class CharacterView: MVVMView {
     
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.reuseId)
+        tableView.rowHeight = 70.0
+        tableView.keyboardDismissMode = .onDrag
+        return tableView
+    }()
+    
     let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
@@ -21,21 +29,17 @@ final class CharacterView: MVVMView {
         return searchBar
     }()
     
-    let tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.reuseId)
-        tableView.rowHeight = 70.0
-        tableView.keyboardDismissMode = .onDrag
-        tableView.tableFooterView = UIView()
-        return tableView
+    let activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        return activityIndicator
     }()
-    
     
     override func addSubviews() {
         super.addSubviews()
         
         addSubview(tableView)
         tableView.tableHeaderView = searchBar
+        tableView.tableFooterView = activityIndicator
     }
     
     override func makeConstraints() {

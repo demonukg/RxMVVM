@@ -3,6 +3,7 @@ target 'RxMVVM' do
 
   pod 'RxCocoa', '~> 5.1'
   pod 'RxSwift', '~> 5.1'
+  pod 'RxRelay', '~> 5.1'
   pod 'RxDataSources', '~> 4.0'
 
   pod 'SnapKit', '~> 5.0'
