@@ -38,10 +38,9 @@ final class CharactersViewController<ViewModel: CharactersViewModelInterface>: M
     override func bind(view: CharacterView) {
         super.bind(view: view)
         
-        //TODO: - asDriver?
         view.searchBar
             .rx.searchButtonClicked
-            .asDriver().drive(onNext: { _ in
+            .subscribe(onNext: { _ in
                 view.searchBar.endEditing(true)
             }).disposed(by: disposeBag)
         
@@ -95,5 +94,4 @@ final class CharactersViewController<ViewModel: CharactersViewModelInterface>: M
         
     }
 
-    
 }

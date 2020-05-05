@@ -47,7 +47,6 @@ final class CharactersViewModel: MVVMViewModel, CharactersViewModelInterface {
         super.init()
     }
     
-    //TODO: - share? ERROR!
     override func onBind() {
         super .onBind()
         
@@ -67,7 +66,7 @@ final class CharactersViewModel: MVVMViewModel, CharactersViewModelInterface {
             reachedBottom
                 .withLatestFrom(searchRequest) { _,_ in CharacterRouter.getCharacters(name: self.currentText, offset: self.charactersRelay.value.count) }
                 .share()
-        )
+        ).share()
         
         allSearchRequests
             .bind(to: searchRequest)
@@ -85,11 +84,13 @@ final class CharactersViewModel: MVVMViewModel, CharactersViewModelInterface {
         
         searchResponse
             .map {_ in false}
+            .catchErrorJustReturn(false)
             .bind(to: isLoadingRelay)
             .disposed(by: disposeBag)
         
         searchResponse
             .map { $0.data.results }
+            .catchErrorJustReturn([])
             .withLatestFrom(charactersRelay) { $1 + $0 }
             .bind(to: charactersRelay)
             .disposed(by: disposeBag)
