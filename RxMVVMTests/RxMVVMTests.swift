@@ -111,20 +111,22 @@ class RxMVVMTests: XCTestCase {
         viewModel.onBind()
         
         viewModel.error
-            .subscribe { _ in
+            .drive(onNext: { _ in
                 XCTFail()
                 expectation.fulfill()
-        }.disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
+            
     
         scheduler.createColdObservable([.next(10, "Spider-Man")])
-            .bind(to: viewModel.searchText)
+            .bind(to: viewModel.search)
             .disposed(by: disposeBag)
 
         scheduler.start()
         
         viewModel.characters
-            .skip(1)
-            .subscribe(onNext: { value in
+            .filter { !$0.isEmpty}
+            .drive(onNext: { value in
+                print(value.count)
                 XCTAssert(value.count > 0)
                 expectation.fulfill()
             }).disposed(by: disposeBag)
@@ -138,10 +140,10 @@ class RxMVVMTests: XCTestCase {
         viewModel.onBind()
         
         viewModel.error
-            .subscribe { error in
+            .drive(onNext: { _ in
                 XCTFail()
                 expectation.fulfill()
-        }.disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
     
         scheduler.createColdObservable([.next(10, 1009351)])
             .bind(to: viewModel.characterId)
@@ -151,7 +153,7 @@ class RxMVVMTests: XCTestCase {
         
         viewModel.comics
             .skip(1)
-            .subscribe(onNext: { value in
+            .drive(onNext: { value in
                 XCTAssert(value.count > 0)
                 expectation.fulfill()
             }).disposed(by: disposeBag)
