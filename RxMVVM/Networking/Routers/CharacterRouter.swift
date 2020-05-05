@@ -15,7 +15,7 @@ enum CharacterRouter  {
     
     case getCharacters(name: String, limit: Int? = 20, offset: Int? = nil)
     
-    case getCharacterComics(characterId: Int, limit: Int?, offset: Int?)
+    case getCharacterComics(characterId: Int, limit: Int? = 5, offset: Int? = nil)
 }
 
 extension CharacterRouter: RouterInterface {

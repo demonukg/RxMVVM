@@ -41,3 +41,19 @@ public extension Reactive where Base: UIScrollView {
         return ControlEvent(events: source)
     }
 }
+
+public extension Reactive where Base: UIScrollView {
+
+    func reachedEdge(offset: CGFloat = 0.0) -> ControlEvent<Void> {
+        let source = contentOffset.map { contentOffset in
+            let visibleWidth = self.base.frame.width - self.base.contentInset.left - self.base.contentInset.right
+            let x = contentOffset.x + self.base.contentInset.left
+            let threshold = max(offset, self.base.contentSize.width - visibleWidth)
+            return x >= threshold
+        }
+        .distinctUntilChanged()
+        .filter { $0 }
+        .map { _ in () }
+        return ControlEvent(events: source)
+    }
+}

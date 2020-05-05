@@ -59,7 +59,9 @@ final class CharactersViewModel: MVVMViewModel, CharactersViewModelInterface {
             .share()
         
         newSearchRequests
-            .map {_ in []}.bind(to: charactersRelay).disposed(by: disposeBag)
+            .map {_ in []}
+            .bind(to: charactersRelay)
+            .disposed(by: disposeBag)
         
         let allSearchRequests = Observable.merge(
             newSearchRequests,

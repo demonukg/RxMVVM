@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import RxRelay
 import RxCocoa
 
 typealias CharacterDetailController = UIViewController & CharacterDetailViewControllerInterface
@@ -45,15 +46,14 @@ final class CharacterDetailViewController<ViewModel: CharacterDetailViewModelInt
         super.bind(viewModel: viewModel)
         
         viewModel.characterId
-            .onNext(chatacter.id)
+            .accept(chatacter.id)
         
-        viewModel.loading
-            .bind(to: self.rx.isAnimating)
+        viewModel.isLoading
+            .drive(self.rx.isAnimating)
             .disposed(by: disposeBag)
         
         viewModel.error
-        .subscribeOn(MainScheduler.instance)
-            .subscribe(onNext: { (error) in
+            .drive(onNext: { (error) in
                 switch error {
                 case .internalError(let error):
                     self.present(AlertControllerFactory.controller(ofType: .messageWithButton(message: error)), animated: true)
@@ -67,18 +67,14 @@ final class CharacterDetailViewController<ViewModel: CharacterDetailViewModelInt
         super.bind(viewModel: viewModel, to: view)
         
         viewModel.comics
-            .asDriver(onErrorJustReturn: [])
             .drive(view.collectionView.rx.items(cellIdentifier: ComicsCollectionViewCell.reuseId, cellType: ComicsCollectionViewCell.self)) { row, item, cell in
                 cell.comics = item
             }.disposed(by: disposeBag)
         
         view.collectionView
-            .rx.contentOffset
-            .asDriver().drive(onNext: { (_) in
-                view.collectionView.isNearHorizontalEdge() && viewModel.shouldLoadNextPage
-                    ? viewModel.loadNextPageTrigger.onNext(())
-                    : ()
-            }).disposed(by: disposeBag)
+            .rx.reachedEdge(offset: 100)
+            .bind(to: viewModel.reachedEdge)
+            .disposed(by: disposeBag)
         
     }
     
