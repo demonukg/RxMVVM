@@ -20,18 +20,18 @@ protocol CharacterDetailViewControllerInterface: AnyObject {
 
 final class CharacterDetailViewController<ViewModel: CharacterDetailViewModelInterface>: MVVMViewController<CharacterDetailView, ViewModel>, CharacterDetailViewControllerInterface, UICollectionViewDelegateFlowLayout {
     
-    private var chatacter: Character
+    private var character: Character
     
     init(viewModel: ViewModel, character: Character) {
-        chatacter = character
+        self.character = character
         super.init(viewModel: viewModel)
     }
     
     override func contentViewDidLoad(_ view: CharacterDetailView) {
         super.contentViewDidLoad(view)
         
-        navigationItem.title = chatacter.name
-        view.character = chatacter
+        navigationItem.title = character.name
+        view.character = character
     }
     
     override func bind(view: CharacterDetailView) {
@@ -46,7 +46,7 @@ final class CharacterDetailViewController<ViewModel: CharacterDetailViewModelInt
         super.bind(viewModel: viewModel)
         
         viewModel.characterId
-            .accept(chatacter.id)
+            .accept(character.id)
         
         viewModel.isLoading
             .drive(self.rx.isAnimating)
