@@ -66,6 +66,7 @@ final class CharactersViewModel: MVVMViewModel, CharactersViewModelInterface {
         let allSearchRequests = Observable.merge(
             newSearchRequests,
             reachedBottom
+                .filter { !self.currentText.isEmpty }
                 .withLatestFrom(searchRequest) { _,_ in CharacterRouter.getCharacters(name: self.currentText, offset: self.charactersRelay.value.count) }
                 .share()
         ).share()
